@@ -172,7 +172,9 @@
 #endif
 
 #define FullName    Product +" for "+ IDELongName +" "+ IDEVer
-#define BinaryDir   IDEShortName + IDEVer
+
+; IDEShortName + IDEVer
+#define BinaryDir   DLLSuffix
 #define DLLName     "GExperts" + DLLSuffix + ".dll"
 #define AppIDValue  Product + IDEShortName + IDEVer
 #define ThisYear    GetDateTimeString('yyyy', '', '');

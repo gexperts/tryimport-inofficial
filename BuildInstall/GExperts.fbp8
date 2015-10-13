@@ -1,0 +1,1109 @@
+﻿project
+begin
+  name = "Imported FB1 Project"
+  projectid = {715C3270-F531-4665-B168-58ED68707C4A}
+  target
+  begin
+    name = Default
+    targetid = {302BC699-C02F-405E-A0A6-211B5525BBF1}
+    rootaction
+    begin
+      description = "Project"
+      action.group
+      begin
+        description = "Pre-Compile Setup"
+        id = {876C51CA-782C-4983-AA68-5FD157A1069C}
+        action.variables.loadfromini
+        begin
+          createvarininiifnotexists = true
+          failifvariablenotdefined = true
+          failifvariablenotininifile = false
+          id = {5B773908-7BEA-4528-8977-C1B4B9FB2A1E}
+          ignorefilenotfound = false
+          inifile = %FBPROJECTDIR%\\CurrentVersion.ini
+          sectionname = Version
+          variables = "MajorVersion" +
+                      "MinorVersion" +
+                      "ReleaseVersion" +
+                      ""
+          variabletypes = "String" +
+                          "String" +
+                          "String" +
+                          ""
+        end
+        action.path.manipulation
+        begin
+          actiontypeid = {097DBD39-9D4E-416B-A4B0-1FA0ED5FB081}
+          customactionname = "Path Manipulation"
+          description = "Expand Project Path Variable"
+          enabletimeout = false
+          id = {D48E7D4A-F896-4CEA-A918-58B1E38D866D}
+          impersonateusenetcredonly = false
+          impersonateuser = false
+          terminateontimeout = true
+          timeoutlength = 2
+          as.applytoinput = True
+          as.usinginputvariable = True
+          as.inputvariable = GXProjectDir
+          as.includetrailingbackslash = False
+          as.excludetrailingbackslash = False
+          as.extractfilename = False
+          as.extractfilepath = False
+          as.extractfiledrive = False
+          as.extractfileext = False
+          as.removefileext = False
+          as.changefileext = False
+          as.appendsubdirectory = False
+          as.forcetrailingbackslash = False
+          as.expandrelativepath = True
+        end
+        action.fileset.define
+        begin
+          description = "Locate All Forms"
+          failifnofiles = false
+          filesetname = AllForms
+          id = {1CB2CAFF-2067-4829-8833-697B6621989A}
+          includedatesizeinlog = true
+          fileset
+          begin
+            basedirectory = %GXSourceDir%
+            name = AllForms
+            outputquoting = qtNone
+            outputseparator = spNone
+            recursehiddensystem = false
+            sortascending = false
+            sortby = fsNone
+            fileset.patternlist
+            begin
+              name = PATTERNLIST
+              fileset.pattern
+              begin
+                comment = "VCL Forms"
+                directoriesonly = false
+                item = *.dfm
+                recurse = false
+              end
+            end
+            fileset.patternlist
+            begin
+              name = EXCLUDEPATTERNLIST
+            end
+            fileset.filterlist
+            begin
+            end
+          end
+        end
+        action.text.findreplace
+        begin
+          casesensitive = false
+          description = "Verify Delphi 6 Compatibility in All Forms"
+          expandvarswhenreplacing = true
+          failmatchcount = 1
+          failonmorematchcount = 0
+          filesetcountallmatches = false
+          filesetname = AllForms
+          id = {4E66EB20-425A-42AD-843F-CE7D51B589AF}
+          matchregexpr = true
+          matchtype = mtAll
+          matchwildcards = false
+          replacementmode = trNone
+          searchstring = (ExplicitLeft|ExplicitTop|ExplicitWidth)
+          substitute = false
+          textfindbehaviour = tfFailOnMore
+          usefileset = true
+          usevariable = false
+          wholelinesonly = false
+          wholewords = false
+          writebom = true
+        end
+        action.propertyset.define
+        begin
+          excludedproperties = "FileFlagDebug" +
+                               "FileFlagPreRelease" +
+                               "FileFlagPrivate" +
+                               "FileFlagSpecial" +
+                               "FileSubType" +
+                               "FileTypeDLL" +
+                               "FileTypeDRV" +
+                               "FileTypeVXD" +
+                               "LegalCopyright" +
+                               "LegalTrademarks" +
+                               "OriginalFilename" +
+                               "ProductVersionString" +
+                               ""
+          id = {5AAB89A6-838F-4166-B380-0C09D5C4B7A4}
+          propertysetname = GExpertsVersion
+          propertyset.win32.info
+          begin
+            name = GExpertsVersion
+            productversion = 0.0.0.0
+          end
+        end
+        action.propertyset.setvalues
+        begin
+          id = {AE16505D-192E-492D-80A1-03C650639ABD}
+          propertysetname = GExpertsVersion
+          setvaluesto = "" +
+                        "" +
+                        "%BuildVersion%" +
+                        "Erik Berry and the GExperts Development Team" +
+                        "" +
+                        "GExperts IDE Addin" +
+                        "" +
+                        "" +
+                        "" +
+                        "" +
+                        "%MajorVersion%" +
+                        "%MinorVersion%" +
+                        "GExperts IDE Addin" +
+                        "%MajorVersion%.%MinorVersion%.%ReleaseVersion%" +
+                        "%ReleaseVersion%" +
+                        "" +
+                        ""
+          valuestoset = "AutoUpdateFileVersionString=0" +
+                        "AutoUpdateProductVersionString=0" +
+                        "BuildVersion=-1" +
+                        "CompanyName=-1" +
+                        "CompileDate=0" +
+                        "FileDescription=-1" +
+                        "FileVersionString=0" +
+                        "IncludeCompileDate=0" +
+                        "InternalName=0" +
+                        "LinkProductVersion=0" +
+                        "MajorVersion=-1" +
+                        "MinorVersion=-1" +
+                        "ProductName=-1" +
+                        "ProductVersion=-1" +
+                        "ReleaseVersion=-1" +
+                        "SpecialBuildDetails=0" +
+                        ""
+        end
+        action.helpandmanual.4
+        begin
+          actioncomment = "The custom template only removes the navigation header text in the HTML output"
+          browserhlpopt = HTML
+          compilebrowserhlp = false
+          compiledocxhelp = false
+          compileepub = false
+          compilehtmlhelp = true
+          compilemmh = false
+          compilemobihelp = false
+          compilemshelp2 = false
+          compilepdf = false
+          compilertf = false
+          compilewinhelp = false
+          description = "Compile Help File"
+          docxhelpopt = DOCX
+          dontclose = false
+          epubopt = EPUB
+          failonwarnings = true
+          hmversion = hm7
+          htmlhelpfile = GExperts.chm
+          htmlhelpopt = CHM
+          id = {7A97AA45-A1A7-4A86-8C7B-322BCD5D8568}
+          keeptemp = false
+          mmhopt = EBOOK
+          mobihelpopt = EBOOK
+          mshelp2opt = HXS
+          pdfopt = PDF
+          projectfile = %GXDocDir%\\GExperts.hmxz
+          rtfopt = RTF
+          winhelpopt = HLP
+        end
+      end
+      action.group
+      begin
+        description = "Compile for all Delphi Versions"
+        id = {D9E0A00A-6A92-429B-9DA8-561EAD186355}
+        variable
+        begin
+          name = CompilerInfo
+          variablescope = vtLocal
+        end
+        variable
+        begin
+          name = CompilerName
+          variablescope = vtLocal
+          variabletype = btString
+        end
+        variable
+        begin
+          defaultvalue = 0
+          name = CompilerVersion
+          variablescope = vtLocal
+          variabletype = btInteger
+        end
+        variable
+        begin
+          name = FileContent
+          variablescope = vtLocal
+          variabletype = btString
+        end
+        variable
+        begin
+          name = SetupConfig
+          variablescope = vtLocal
+          variabletype = btString
+        end
+        variable
+        begin
+          defaultvalue = false
+          name = Skip
+          variablescope = vtLocal
+          variabletype = btBoolean
+        end
+        action.textfile.read
+        begin
+          allowsharedreading = true
+          escapevariables = false
+          fbvariable = FileContent
+          filename = %FBPROJECTDIR%\\SupportedDelphiVersions.txt
+          id = {4C5E67D5-DAF1-4C2E-B6DC-CAA2D5735FDE}
+          putcontentsinvar = true
+        end
+        action.list.iterator
+        begin
+          failifnoiterations = false
+          fbvariable = CompilerInfo
+          id = {00299EF9-DA12-4FAC-B284-6AD1E7D15040}
+          listofitems = "%FileContent%" +
+                        ""
+          listseparator = lsCRLF
+          separatorchar = ,
+          skipblanklines = true
+          action.script.run
+          begin
+            description = "Extract CompilerVersion and Name"
+            id = {71F99EE4-6018-4984-9274-D23F51886832}
+            action.script
+            begin
+              name = OnExecute
+              script >
+              beginscript
+                Skip = true;
+                CompilerInfo = CompilerInfo.toString();
+                
+                var Info = CompilerInfo.split(" ");
+                Info = Info[0].split(",");
+                
+                if ((Info.length == 0) || (CompilerInfo.charAt(0) == ";"))
+                {
+                  // Skip version
+                } else
+                {
+                  CompilerVersion = parseInt(Info[0]);
+                  CompilerName = Info[1];
+                  if (Info.length > 2)
+                    SetupConfig = Info[2]; else
+                    SetupConfig = CompilerName;
+                  if ((CompilerName != "") && (CompilerVersion >= 0) && (SetupConfig != ""))
+                     Skip = false;
+                }
+              endscript
+              scriptlanguage = JavaScript
+            end
+          end
+          action.group
+          begin
+            description = "Use CompilerVersion"
+            id = {DD39FF63-0020-4EBF-9516-B1F10DD740AD}
+            action.target.execute
+            begin
+              actionlistid = {6ACBC2FC-C85A-4918-9D5F-36EB564E7766}
+              failifactionlistempty = false
+              id = {E8D72670-3BFF-4040-9B68-DAED8A37EEB6}
+              resetdependencychain = false
+              target.argvalues
+              begin
+                target.argvalue
+                begin
+                  value = %CompilerVersion%
+                  variablename = CompilerVersion
+                end
+                target.argvalue
+                begin
+                  value = %CompilerName%
+                  variablename = NameSuffix
+                end
+              end
+            end
+            action.target.execute
+            begin
+              actionlistid = {FD9B88AE-CD11-40B3-8827-FED3D219399C}
+              failifactionlistempty = false
+              id = {20F6822A-B2FF-4509-AED7-452F768B7DFC}
+              resetdependencychain = false
+              target.argvalues
+              begin
+                target.argvalue
+                begin
+                  value = %CompilerName%
+                  variablename = NameSuffix
+                end
+                target.argvalue
+                begin
+                  value = %SetupConfig%
+                  variablename = SetupConfig
+                end
+              end
+            end
+            action.script
+            begin
+              name = Condition
+              script >
+              beginscript
+                !Skip
+              endscript
+              scriptlanguage = JavaScript
+            end
+          end
+        end
+      end
+    end
+  end
+  target
+  begin
+    name = Compile
+    targetid = {6ACBC2FC-C85A-4918-9D5F-36EB564E7766}
+    target.arg
+    begin
+      defaultvalue = 0
+      displayorder = 0
+      name = CompilerVersion
+      paramtype = paInteger
+    end
+    target.arg
+    begin
+      displayorder = 0
+      name = NameSuffix
+    end
+    rootaction
+    begin
+      action.delphi.build
+      begin
+        allowimplicitimport = true
+        alwaysuseconditionalsfromdof = false
+        autoincbuild = false
+        autoupdatefileversion = true
+        autoupdateproductversion = true
+        buildall = true
+        buildversion = 0
+        codepage = 1252
+        compileprojectresources = false
+        compileridl = true
+        configname = Release
+        debugversionnumbers = false
+        delphiversion = Delphi10Seattle
+        description = "Build GExperts-DLL"
+        eurekalogverboselogging = false
+        frameworktype = VCL
+        hintsaserror = false
+        id = {C90BC56B-3980-4927-A8FC-D5EA16B7DFCC}
+        includecompiledate = true
+        includemanifest = false
+        includeverinfo = true
+        isdebug = false
+        isdll = false
+        isprerelease = false
+        isprivate = false
+        isspecial = false
+        keepcfg = false
+        linkproductversiontofileversion = true
+        locale = 3081
+        majorversion = 1
+        minorversion = 3
+        platform = Win32
+        projectfile = %GXSourceDir%\\GExperts%NameSuffix%.dpr
+        regenerateresource = true
+        releaseversion = 8
+        resourcecompilertype = rcBorland
+        updatedoffile = false
+        updatepackagesource = false
+        updateversioninfokeys = false
+        useeurekalogcompiler = false
+        useprojectsettings = []
+        usepropertyset = true
+        useversionfromdof = false
+        versioninfokeys = "CompanyName=Erik Berry and the GExperts Development Team" +
+                          "FileDescription=GExperts IDE Addin" +
+                          "ProductName=GExperts IDE Addin" +
+                          ""
+        versioninfopropertysetname = GExpertsVersion
+        warningsaserror = false
+        workaroundd5bug = false
+        action.script
+        begin
+          name = BeforeAction
+          script >
+          beginscript
+            Action.CompilerVersion = CompilerVersion;
+          endscript
+          scriptlanguage = JavaScript
+        end
+        delphi.compileroptions
+        begin
+          alwaysuseconditionalsfromdof = false
+          alwaysusedelphilibrarypath = true
+          alwaysusedofsearchpath = false
+          assertions = true
+          assignableconst = false
+          booleval = false
+          compilerwarnings = "-w-UNSAFE_TYPE=0" +
+                             "-w-UNSAFE_CODE=0" +
+                             "-w-UNSAFE_CAST=0" +
+                             ""
+          consoleapp = false
+          debuginfo = false
+          definitionsonly = true
+          emitruntimetypeinformation = false
+          exportallsymbols = false
+          extendedsyntax = true
+          externaltd32 = true
+          frameworktype = VCL
+          generatedocumentation = false
+          generatehpp = false
+          hugestrings = true
+          imagebase = 4194304
+          includenamespaces = false
+          includeremotesymbols = false
+          includetd32 = false
+          inlining = inOn
+          iochecking = true
+          librarypath = $(BDSLIB)\\$(Platform)\\release;$(BDSUSERDIR)\\Imports;$(BDS)\\Imports;$(BDSCOMMONDIR)\\Dcp;$(BDS)\\include
+          linkeroutput = 0
+          localsymbols = false
+          mapfile = 0
+          maxstacksize = 1048576
+          minstacksize = 16384
+          namespaceprefixes = System;Xml;Data;Datasnap;Web;Soap;Winapi;System.Win;Data.Win;Web.Win;Soap.Win;Bde;Vcl;Vcl.Imaging;Vcl.Touch;Vcl.Samples;Vcl.Shell;
+          openstrings = true
+          optimisation = true
+          overflowchecking = false
+          packages = rtl;vcl;vclx;vclactnband;xmlrtl;designide
+          rangechecking = false
+          recordfieldalign = fa8
+          referenceinfo = false
+          safedivide = false
+          searchpath = Framework;..\\ExternalSource;..\\ExternalSource\\Abbrevia;..\\ExternalSource\\UniSynEdit;..\\Images
+          showhints = true
+          showwarnings = true
+          stackframes = false
+          stringchecks = true
+          typedpointers = false
+          unitaliases = WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
+          usedebugdcu = false
+          usepackages = true
+          varstringchecks = true
+        end
+      end
+      action.delphi.build
+      begin
+        allowimplicitimport = true
+        alwaysuseconditionalsfromdof = false
+        autoincbuild = false
+        autoupdatefileversion = true
+        autoupdateproductversion = true
+        buildall = true
+        buildversion = 0
+        codepage = 1252
+        compileprojectresources = false
+        compileridl = true
+        configname = Release
+        debugversionnumbers = false
+        delphiversion = Delphi10Seattle
+        description = "Build ExpertManager"
+        eurekalogverboselogging = false
+        frameworktype = VCL
+        hintsaserror = false
+        iconfile = %GXSourceDir%\\StandAlone\\ExpertManager\\ExpertManager.ico
+        id = {F44A6A97-8451-4E6D-99B6-F95CC43341B8}
+        includecompiledate = true
+        includemanifest = false
+        includeverinfo = true
+        isdebug = false
+        isdll = false
+        isprerelease = false
+        isprivate = false
+        isspecial = false
+        keepcfg = false
+        linkproductversiontofileversion = true
+        locale = 3081
+        majorversion = 1
+        minorversion = 3
+        platform = Win32
+        projectfile = %GXSourceDir%\\StandAlone\\ExpertManager\\ExpertManager.dpr
+        regenerateresource = true
+        releaseversion = 8
+        resourcecompilertype = rcBorland
+        updatedoffile = false
+        updatepackagesource = false
+        updateversioninfokeys = false
+        useeurekalogcompiler = false
+        useprojectsettings = []
+        usepropertyset = true
+        useversionfromdof = false
+        versioninfokeys = "CompanyName=Erik Berry and the GExperts Development Team" +
+                          "FileDescription=GExperts IDE Addin" +
+                          "ProductName=GExperts IDE Addin" +
+                          ""
+        versioninfopropertysetname = GExpertsVersion
+        warningsaserror = false
+        workaroundd5bug = false
+        action.script
+        begin
+          name = BeforeAction
+          script >
+          beginscript
+            Action.CompilerVersion = CompilerVersion;
+          endscript
+          scriptlanguage = JavaScript
+        end
+        delphi.compileroptions
+        begin
+          alwaysuseconditionalsfromdof = false
+          alwaysusedelphilibrarypath = false
+          alwaysusedofsearchpath = false
+          assertions = true
+          assignableconst = false
+          booleval = false
+          compilerwarnings = "-w-UNSAFE_TYPE=0" +
+                             "-w-UNSAFE_CODE=0" +
+                             "-w-UNSAFE_CAST=0" +
+                             ""
+          consoleapp = false
+          debuginfo = false
+          definitionsonly = true
+          emitruntimetypeinformation = false
+          exportallsymbols = false
+          extendedsyntax = true
+          externaltd32 = true
+          frameworktype = VCL
+          generatedocumentation = false
+          generatehpp = false
+          hugestrings = true
+          imagebase = 4194304
+          includenamespaces = false
+          includeremotesymbols = false
+          includetd32 = false
+          inlining = inOn
+          iochecking = true
+          librarypath = $(BDSLIB)\\$(Platform)\\release;$(BDSUSERDIR)\\Imports;$(BDS)\\Imports;$(BDSCOMMONDIR)\\Dcp;$(BDS)\\include
+          linkeroutput = 0
+          localsymbols = false
+          mapfile = 0
+          maxstacksize = 1048576
+          minstacksize = 16384
+          namespaceprefixes = System;Xml;Data;Datasnap;Web;Soap;Winapi;System.Win;Data.Win;Web.Win;Soap.Win;Bde;Vcl;Vcl.Imaging;Vcl.Touch;Vcl.Samples;Vcl.Shell;
+          openstrings = true
+          optimisation = true
+          outputdir = %GXBinariesDir%\\%NameSuffix%
+          overflowchecking = false
+          packages = rtl;vcl
+          rangechecking = false
+          recordfieldalign = fa8
+          referenceinfo = false
+          safedivide = false
+          showhints = true
+          showwarnings = true
+          stackframes = false
+          stringchecks = true
+          typedpointers = false
+          unitaliases = WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
+          usedebugdcu = false
+          usepackages = true
+          varstringchecks = true
+        end
+      end
+      action.delphi.build
+      begin
+        allowimplicitimport = true
+        alwaysuseconditionalsfromdof = false
+        autoincbuild = false
+        autoupdatefileversion = true
+        autoupdateproductversion = true
+        buildall = true
+        buildversion = 0
+        codepage = 1252
+        compileprojectresources = false
+        compileridl = true
+        configname = Release
+        debugversionnumbers = false
+        delphiversion = Delphi10Seattle
+        description = "Build GExpertsDebugWindow"
+        eurekalogverboselogging = false
+        frameworktype = VCL
+        hintsaserror = false
+        iconfile = %GXSourceDir%\\StandAlone\\DebugWindow\\GExpertsDebugWindow.ico
+        id = {3F7818C0-9225-4412-8473-CC05F1AE62B1}
+        includecompiledate = true
+        includemanifest = false
+        includeverinfo = true
+        isdebug = false
+        isdll = false
+        isprerelease = false
+        isprivate = false
+        isspecial = false
+        keepcfg = false
+        linkproductversiontofileversion = true
+        locale = 3081
+        majorversion = 1
+        minorversion = 3
+        platform = Win32
+        projectfile = %GXSourceDir%\\StandAlone\\DebugWindow\\GExpertsDebugWindow.dpr
+        regenerateresource = true
+        releaseversion = 8
+        resourcecompilertype = rcBorland
+        updatedoffile = false
+        updatepackagesource = false
+        updateversioninfokeys = false
+        useeurekalogcompiler = false
+        useprojectsettings = []
+        usepropertyset = true
+        useversionfromdof = false
+        versioninfokeys = "CompanyName=Erik Berry and the GExperts Development Team" +
+                          "FileDescription=GExperts IDE Addin" +
+                          "ProductName=GExperts IDE Addin" +
+                          ""
+        versioninfopropertysetname = GExpertsVersion
+        warningsaserror = false
+        workaroundd5bug = false
+        action.script
+        begin
+          name = BeforeAction
+          script >
+          beginscript
+            Action.CompilerVersion = CompilerVersion;
+          endscript
+          scriptlanguage = JavaScript
+        end
+        delphi.compileroptions
+        begin
+          alwaysuseconditionalsfromdof = false
+          alwaysusedelphilibrarypath = false
+          alwaysusedofsearchpath = false
+          assertions = true
+          assignableconst = false
+          booleval = false
+          compilerwarnings = "-w-UNSAFE_TYPE=0" +
+                             "-w-UNSAFE_CODE=0" +
+                             "-w-UNSAFE_CAST=0" +
+                             ""
+          consoleapp = false
+          debuginfo = false
+          definitionsonly = true
+          emitruntimetypeinformation = false
+          exportallsymbols = false
+          extendedsyntax = true
+          externaltd32 = true
+          frameworktype = VCL
+          generatedocumentation = false
+          generatehpp = false
+          hugestrings = true
+          imagebase = 4194304
+          includenamespaces = false
+          includeremotesymbols = false
+          includetd32 = false
+          inlining = inOn
+          iochecking = true
+          librarypath = $(BDSLIB)\\$(Platform)\\release;$(BDSUSERDIR)\\Imports;$(BDS)\\Imports;$(BDSCOMMONDIR)\\Dcp;$(BDS)\\include
+          linkeroutput = 0
+          localsymbols = false
+          mapfile = 0
+          maxstacksize = 1048576
+          minstacksize = 16384
+          namespaceprefixes = System;Xml;Data;Datasnap;Web;Soap;Winapi;System.Win;Data.Win;Web.Win;Soap.Win;Bde;Vcl;Vcl.Imaging;Vcl.Touch;Vcl.Samples;Vcl.Shell;
+          openstrings = true
+          optimisation = true
+          outputdir = %GXBinariesDir%\\%NameSuffix%
+          overflowchecking = false
+          packages = rtl;vcl
+          rangechecking = false
+          recordfieldalign = fa8
+          referenceinfo = false
+          safedivide = false
+          searchpath = ..\\..\\Framework;..\\..\\Utils;
+          showhints = true
+          showwarnings = true
+          stackframes = false
+          stringchecks = true
+          typedpointers = false
+          unitaliases = WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
+          usedebugdcu = false
+          usepackages = true
+          varstringchecks = true
+        end
+      end
+      action.delphi.build
+      begin
+        allowimplicitimport = true
+        alwaysuseconditionalsfromdof = false
+        autoincbuild = false
+        autoupdatefileversion = true
+        autoupdateproductversion = true
+        buildall = true
+        buildversion = 0
+        codepage = 1252
+        compileprojectresources = false
+        compileridl = true
+        configname = Release
+        debugversionnumbers = false
+        delphiversion = Delphi10Seattle
+        description = "Build CodeLibrarian"
+        eurekalogverboselogging = false
+        frameworktype = VCL
+        hintsaserror = false
+        iconfile = %GXSourceDir%\\StandAlone\\CodeLibrarian\\CodeLibrarian.ico
+        id = {AFA58561-FA53-46F4-B2F6-E2A090900FAF}
+        includecompiledate = true
+        includemanifest = false
+        includeverinfo = true
+        isdebug = false
+        isdll = false
+        isprerelease = false
+        isprivate = false
+        isspecial = false
+        keepcfg = false
+        linkproductversiontofileversion = true
+        locale = 3081
+        majorversion = 1
+        minorversion = 3
+        platform = Win32
+        projectfile = %GXSourceDir%\\StandAlone\\CodeLibrarian\\CodeLibrarian.dpr
+        regenerateresource = true
+        releaseversion = 8
+        resourcecompilertype = rcBorland
+        updatedoffile = false
+        updatepackagesource = false
+        updateversioninfokeys = false
+        useeurekalogcompiler = false
+        useprojectsettings = []
+        usepropertyset = true
+        useversionfromdof = false
+        versioninfokeys = "CompanyName=Erik Berry and the GExperts Development Team" +
+                          "FileDescription=GExperts IDE Addin" +
+                          "ProductName=GExperts IDE Addin" +
+                          ""
+        versioninfopropertysetname = GExpertsVersion
+        warningsaserror = false
+        workaroundd5bug = false
+        action.script
+        begin
+          name = BeforeAction
+          script >
+          beginscript
+            Action.CompilerVersion = CompilerVersion;
+          endscript
+          scriptlanguage = JavaScript
+        end
+        delphi.compileroptions
+        begin
+          alwaysuseconditionalsfromdof = false
+          alwaysusedelphilibrarypath = false
+          alwaysusedofsearchpath = false
+          assertions = true
+          assignableconst = false
+          booleval = false
+          compilerwarnings = "-w-UNSAFE_TYPE=0" +
+                             "-w-UNSAFE_CODE=0" +
+                             "-w-UNSAFE_CAST=0" +
+                             ""
+          consoleapp = false
+          debuginfo = false
+          definitionsonly = true
+          emitruntimetypeinformation = false
+          exportallsymbols = false
+          extendedsyntax = true
+          externaltd32 = true
+          frameworktype = VCL
+          generatedocumentation = false
+          generatehpp = false
+          hugestrings = true
+          imagebase = 4194304
+          includenamespaces = false
+          includeremotesymbols = false
+          includetd32 = false
+          inlining = inOn
+          iochecking = true
+          librarypath = $(BDSLIB)\\$(Platform)\\release;$(BDSUSERDIR)\\Imports;$(BDS)\\Imports;$(BDSCOMMONDIR)\\Dcp;$(BDS)\\include
+          linkeroutput = 0
+          localsymbols = false
+          mapfile = 0
+          maxstacksize = 1048576
+          minstacksize = 16384
+          namespaceprefixes = System;Xml;Data;Datasnap;Web;Soap;Winapi;System.Win;Data.Win;Web.Win;Soap.Win;Bde;Vcl;Vcl.Imaging;Vcl.Touch;Vcl.Samples;Vcl.Shell;
+          openstrings = true
+          optimisation = true
+          outputdir = %GXBinariesDir%\\%NameSuffix%
+          overflowchecking = false
+          packages = rtl;vcl
+          rangechecking = false
+          recordfieldalign = fa8
+          referenceinfo = false
+          safedivide = false
+          showhints = true
+          showwarnings = true
+          stackframes = false
+          stringchecks = true
+          typedpointers = false
+          unitaliases = WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
+          usedebugdcu = false
+          usepackages = true
+          varstringchecks = true
+        end
+      end
+      action.delphi.build
+      begin
+        allowimplicitimport = true
+        alwaysuseconditionalsfromdof = false
+        autoincbuild = false
+        autoupdatefileversion = true
+        autoupdateproductversion = true
+        buildall = true
+        buildversion = 0
+        codepage = 1252
+        compileprojectresources = false
+        compileridl = true
+        configname = Release
+        debugversionnumbers = false
+        delphiversion = Delphi10Seattle
+        description = "Build GExpertsGrep"
+        eurekalogverboselogging = false
+        frameworktype = VCL
+        hintsaserror = false
+        iconfile = %GXSourceDir%\\StandAlone\\Grep\\GExpertsGrep.ico
+        id = {472A732D-F347-449D-AE7E-B78FEF3FAE9E}
+        includecompiledate = true
+        includemanifest = false
+        includeverinfo = true
+        isdebug = false
+        isdll = false
+        isprerelease = false
+        isprivate = false
+        isspecial = false
+        keepcfg = false
+        linkproductversiontofileversion = true
+        locale = 3081
+        majorversion = 1
+        minorversion = 3
+        platform = Win32
+        projectfile = %GXSourceDir%\\StandAlone\\Grep\\GExpertsGrep.dpr
+        regenerateresource = true
+        releaseversion = 8
+        resourcecompilertype = rcBorland
+        updatedoffile = false
+        updatepackagesource = false
+        updateversioninfokeys = false
+        useeurekalogcompiler = false
+        useprojectsettings = []
+        usepropertyset = true
+        useversionfromdof = false
+        versioninfokeys = "CompanyName=Erik Berry and the GExperts Development Team" +
+                          "FileDescription=GExperts IDE Addin" +
+                          "ProductName=GExperts IDE Addin" +
+                          ""
+        versioninfopropertysetname = GExpertsVersion
+        warningsaserror = false
+        workaroundd5bug = false
+        action.script
+        begin
+          name = BeforeAction
+          script >
+          beginscript
+            Action.CompilerVersion = CompilerVersion;
+          endscript
+          scriptlanguage = JavaScript
+        end
+        delphi.compileroptions
+        begin
+          alwaysuseconditionalsfromdof = false
+          alwaysusedelphilibrarypath = false
+          alwaysusedofsearchpath = false
+          assertions = true
+          assignableconst = false
+          booleval = false
+          compilerwarnings = "-w-UNSAFE_TYPE=0" +
+                             "-w-UNSAFE_CODE=0" +
+                             "-w-UNSAFE_CAST=0" +
+                             ""
+          consoleapp = false
+          debuginfo = false
+          definitionsonly = true
+          emitruntimetypeinformation = false
+          exportallsymbols = false
+          extendedsyntax = true
+          externaltd32 = true
+          frameworktype = VCL
+          generatedocumentation = false
+          generatehpp = false
+          hugestrings = true
+          imagebase = 4194304
+          includenamespaces = false
+          includeremotesymbols = false
+          includetd32 = false
+          inlining = inOn
+          iochecking = true
+          librarypath = $(BDSLIB)\\$(Platform)\\release;$(BDSUSERDIR)\\Imports;$(BDS)\\Imports;$(BDSCOMMONDIR)\\Dcp;$(BDS)\\include
+          linkeroutput = 0
+          localsymbols = false
+          mapfile = 0
+          maxstacksize = 1048576
+          minstacksize = 16384
+          namespaceprefixes = System;Xml;Data;Datasnap;Web;Soap;Winapi;System.Win;Data.Win;Web.Win;Soap.Win;Bde;Vcl;Vcl.Imaging;Vcl.Touch;Vcl.Samples;Vcl.Shell;
+          openstrings = true
+          optimisation = true
+          outputdir = %GXBinariesDir%\\%NameSuffix%
+          overflowchecking = false
+          packages = rtl;vcl
+          rangechecking = false
+          recordfieldalign = fa8
+          referenceinfo = false
+          safedivide = false
+          showhints = true
+          showwarnings = true
+          stackframes = false
+          stringchecks = true
+          typedpointers = false
+          unitaliases = WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
+          usedebugdcu = false
+          usepackages = true
+          varstringchecks = true
+        end
+      end
+    end
+  end
+  target
+  begin
+    name = "Build Setup"
+    targetid = {FD9B88AE-CD11-40B3-8827-FED3D219399C}
+    target.arg
+    begin
+      displayorder = 0
+      name = NameSuffix
+    end
+    target.arg
+    begin
+      displayorder = 0
+      name = SetupConfig
+    end
+    rootaction
+    begin
+      action.innosetup.execute
+      begin
+        definitions = "%SetupConfig%=" +
+                      "Version=%ProductVersion%" +
+                      ""
+        id = {A62862FB-231C-4EAB-8EA6-90236C835EDF}
+        innoversion = Inno5
+        scriptfile = %GXInstallDir%\\GExperts.iss
+        showprogress = false
+        unicode = false
+        usecommandline = true
+        usepreprocessor = true
+      end
+      action.files.delete
+      begin
+        deletehidden = true
+        deletereadonly = true
+        failifnofile = false
+        filespec = %GXInstallDir%\\Output\\GX%NameSuffix%-%ProductVersion%.exe
+        id = {338EC79A-B47F-480E-8646-C2CB55A7541D}
+      end
+      action.directory.rename
+      begin
+        id = {C7D02E48-D358-4896-A36C-48C3E7B347CA}
+        newdirname = GX%NameSuffix%-%SetupVersion%.exe
+        renamedir = false
+        sourcefile = %GXInstallDir%\\Output\\Setup.exe
+      end
+    end
+  end
+  variable
+  begin
+    defaultvalue = 0
+    groupname = Version
+    name = BuildVersion
+    variablescope = vtProject
+  end
+  variable
+  begin
+    defaultvalue = %GXProjectDir%\\Binaries
+    groupname = Dir
+    ismacro = true
+    name = GXBinariesDir
+    variablescope = vtProject
+  end
+  variable
+  begin
+    defaultvalue = %GXProjectDir%\\Documentation
+    groupname = Dir
+    ismacro = true
+    name = GXDocDir
+    variablescope = vtProject
+  end
+  variable
+  begin
+    defaultvalue = %GXProjectDir%\\BuildInstall
+    groupname = Dir
+    ismacro = true
+    name = GXInstallDir
+    variablescope = vtProject
+  end
+  variable
+  begin
+    defaultvalue = %FBProjectDir%\\..
+    groupname = Dir
+    name = GXProjectDir
+    variablescope = vtProject
+  end
+  variable
+  begin
+    defaultvalue = %GXProjectDir%\\Source
+    groupname = Dir
+    ismacro = true
+    name = GXSourceDir
+    variablescope = vtProject
+  end
+  variable
+  begin
+    defaultvalue = 1
+    groupname = Version
+    name = MajorVersion
+    variablescope = vtProject
+  end
+  variable
+  begin
+    defaultvalue = 3
+    groupname = Version
+    name = MinorVersion
+    variablescope = vtProject
+  end
+  variable
+  begin
+    defaultvalue = %MajorVersion%.%MinorVersion%%ReleaseVersion%
+    groupname = Version
+    ismacro = true
+    name = ProductVersion
+    variablescope = vtProject
+    variabletype = btString
+  end
+  variable
+  begin
+    defaultvalue = 8
+    groupname = Version
+    name = ReleaseVersion
+    variablescope = vtProject
+  end
+  variable
+  begin
+    name = SetupPostfix
+    variablescope = vtProject
+  end
+  variable
+  begin
+    defaultvalue = %MajorVersion%%MinorVersion%%ReleaseVersion%
+    groupname = Version
+    ismacro = true
+    name = SetupVersion
+    variablescope = vtProject
+  end
+end
