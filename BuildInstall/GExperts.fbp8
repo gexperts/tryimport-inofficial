@@ -160,29 +160,30 @@ begin
                         "%ReleaseVersion%" +
                         "" +
                         ""
-          valuestoset = "AutoUpdateFileVersionString=0" +
-                        "AutoUpdateProductVersionString=0" +
-                        "BuildVersion=-1" +
-                        "CompanyName=-1" +
-                        "CompileDate=0" +
-                        "FileDescription=-1" +
-                        "FileVersionString=0" +
-                        "IncludeCompileDate=0" +
-                        "InternalName=0" +
-                        "LinkProductVersion=0" +
-                        "MajorVersion=-1" +
-                        "MinorVersion=-1" +
-                        "ProductName=-1" +
-                        "ProductVersion=-1" +
-                        "ReleaseVersion=-1" +
-                        "SpecialBuildDetails=0" +
+          valuestoset = "AutoUpdateFileVersionString\=0" +
+                        "AutoUpdateProductVersionString\=0" +
+                        "BuildVersion\=-1" +
+                        "CompanyName\=-1" +
+                        "CompileDate\=0" +
+                        "FileDescription\=-1" +
+                        "FileVersionString\=0" +
+                        "IncludeCompileDate\=0" +
+                        "InternalName\=0" +
+                        "LinkProductVersion\=0" +
+                        "MajorVersion\=-1" +
+                        "MinorVersion\=-1" +
+                        "ProductName\=-1" +
+                        "ProductVersion\=-1" +
+                        "ReleaseVersion\=-1" +
+                        "SpecialBuildDetails\=0" +
                         ""
         end
         action.helpandmanual.4
         begin
           actioncomment = "The custom template only removes the navigation header text in the HTML output"
+          browserhelpfile = Output\\HTML\\index.htm
           browserhlpopt = HTML
-          compilebrowserhlp = false
+          compilebrowserhlp = true
           compiledocxhelp = false
           compileepub = false
           compilehtmlhelp = true
@@ -195,10 +196,11 @@ begin
           description = "Compile Help File"
           docxhelpopt = DOCX
           dontclose = false
+          enabled = false
           epubopt = EPUB
           failonwarnings = true
           hmversion = hm7
-          htmlhelpfile = GExperts.chm
+          htmlhelpfile = Output\\GExperts.chm
           htmlhelpopt = CHM
           id = {7A97AA45-A1A7-4A86-8C7B-322BCD5D8568}
           keeptemp = false
@@ -208,6 +210,8 @@ begin
           pdfopt = PDF
           projectfile = %GXDocDir%\\GExperts.hmxz
           rtfopt = RTF
+          skinfilename = %GXDocDir%\\GExpertsSkinBlack.hmskin
+          webskinfilename = %GXDocDir%\\GExpertsSkinBlack.hmskin
           winhelpopt = HLP
         end
       end
@@ -260,6 +264,41 @@ begin
           filename = %FBPROJECTDIR%\\SupportedDelphiVersions.txt
           id = {4C5E67D5-DAF1-4C2E-B6DC-CAA2D5735FDE}
           putcontentsinvar = true
+        end
+        action.ifthen
+        begin
+          actionlogtitle = "If [%SignFilePath%] <\> []"
+          expandactionlogtitle = false
+          id = {50B5B493-22CB-4E54-81A0-55A382DB46E0}
+          lhsstoragestring = "%SignFilePath%" +
+                             "%SignPW%" +
+                             "%SignTool%" +
+                             "%TimeStamper%" +
+                             ""
+          operatorsstoragestring = "<\>" +
+                                   "<\>" +
+                                   "<\>" +
+                                   "<\>" +
+                                   ""
+          resultinlogtitle = true
+          rhsstoragestring = "" +
+                             "" +
+                             "" +
+                             "" +
+                             ""
+          shortcircuitevaluation = true
+          termjoiner = jwAnd
+          action.variable.set
+          begin
+            applytoexisting = false
+            doexpandexpression = false
+            expandactionlogtitle = false
+            forcetype = ftBoolean
+            id = {77B308E0-EEA9-4F78-A5F7-45AF97486808}
+            modifier = smNone
+            newvalue = True
+            variablename = CanSign
+          end
         end
         action.list.iterator
         begin
@@ -320,6 +359,21 @@ begin
                   value = %CompilerVersion%
                   variablename = CompilerVersion
                 end
+                target.argvalue
+                begin
+                  value = %CompilerName%
+                  variablename = NameSuffix
+                end
+              end
+            end
+            action.target.execute
+            begin
+              actionlistid = {FE206804-1636-4572-9A7E-007EEE4D9D44}
+              failifactionlistempty = false
+              id = {7C63AD16-43F3-4F49-86BE-0299DC910742}
+              resetdependencychain = false
+              target.argvalues
+              begin
                 target.argvalue
                 begin
                   value = %CompilerName%
@@ -424,9 +478,9 @@ begin
         useprojectsettings = []
         usepropertyset = true
         useversionfromdof = false
-        versioninfokeys = "CompanyName=Erik Berry and the GExperts Development Team" +
-                          "FileDescription=GExperts IDE Addin" +
-                          "ProductName=GExperts IDE Addin" +
+        versioninfokeys = "CompanyName\=Erik Berry and the GExperts Development Team" +
+                          "FileDescription\=GExperts IDE Addin" +
+                          "ProductName\=GExperts IDE Addin" +
                           ""
         versioninfopropertysetname = GExpertsVersion
         warningsaserror = false
@@ -448,9 +502,9 @@ begin
           assertions = true
           assignableconst = false
           booleval = false
-          compilerwarnings = "-w-UNSAFE_TYPE=0" +
-                             "-w-UNSAFE_CODE=0" +
-                             "-w-UNSAFE_CAST=0" +
+          compilerwarnings = "-w-UNSAFE_TYPE\=0" +
+                             "-w-UNSAFE_CODE\=0" +
+                             "-w-UNSAFE_CAST\=0" +
                              ""
           consoleapp = false
           debuginfo = false
@@ -490,7 +544,7 @@ begin
           stackframes = false
           stringchecks = true
           typedpointers = false
-          unitaliases = WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
+          unitaliases = WinTypes\=Windows;WinProcs\=Windows;DbiTypes\=BDE;DbiProcs\=BDE;DbiErrs\=BDE;
           usedebugdcu = false
           usepackages = true
           varstringchecks = true
@@ -542,9 +596,9 @@ begin
         useprojectsettings = []
         usepropertyset = true
         useversionfromdof = false
-        versioninfokeys = "CompanyName=Erik Berry and the GExperts Development Team" +
-                          "FileDescription=GExperts IDE Addin" +
-                          "ProductName=GExperts IDE Addin" +
+        versioninfokeys = "CompanyName\=Erik Berry and the GExperts Development Team" +
+                          "FileDescription\=GExperts IDE Addin" +
+                          "ProductName\=GExperts IDE Addin" +
                           ""
         versioninfopropertysetname = GExpertsVersion
         warningsaserror = false
@@ -566,9 +620,9 @@ begin
           assertions = true
           assignableconst = false
           booleval = false
-          compilerwarnings = "-w-UNSAFE_TYPE=0" +
-                             "-w-UNSAFE_CODE=0" +
-                             "-w-UNSAFE_CAST=0" +
+          compilerwarnings = "-w-UNSAFE_TYPE\=0" +
+                             "-w-UNSAFE_CODE\=0" +
+                             "-w-UNSAFE_CAST\=0" +
                              ""
           consoleapp = false
           debuginfo = false
@@ -608,7 +662,7 @@ begin
           stackframes = false
           stringchecks = true
           typedpointers = false
-          unitaliases = WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
+          unitaliases = WinTypes\=Windows;WinProcs\=Windows;DbiTypes\=BDE;DbiProcs\=BDE;DbiErrs\=BDE;
           usedebugdcu = false
           usepackages = true
           varstringchecks = true
@@ -660,9 +714,9 @@ begin
         useprojectsettings = []
         usepropertyset = true
         useversionfromdof = false
-        versioninfokeys = "CompanyName=Erik Berry and the GExperts Development Team" +
-                          "FileDescription=GExperts IDE Addin" +
-                          "ProductName=GExperts IDE Addin" +
+        versioninfokeys = "CompanyName\=Erik Berry and the GExperts Development Team" +
+                          "FileDescription\=GExperts IDE Addin" +
+                          "ProductName\=GExperts IDE Addin" +
                           ""
         versioninfopropertysetname = GExpertsVersion
         warningsaserror = false
@@ -684,9 +738,9 @@ begin
           assertions = true
           assignableconst = false
           booleval = false
-          compilerwarnings = "-w-UNSAFE_TYPE=0" +
-                             "-w-UNSAFE_CODE=0" +
-                             "-w-UNSAFE_CAST=0" +
+          compilerwarnings = "-w-UNSAFE_TYPE\=0" +
+                             "-w-UNSAFE_CODE\=0" +
+                             "-w-UNSAFE_CAST\=0" +
                              ""
           consoleapp = false
           debuginfo = false
@@ -721,13 +775,13 @@ begin
           recordfieldalign = fa8
           referenceinfo = false
           safedivide = false
-          searchpath = ..\\..\\Framework;..\\..\\Utils;
+          searchpath = ..\\..\\Framework;..\\..\\Utils;..\\..\\..\\ExternalSource\\UniSynEdit;
           showhints = true
           showwarnings = true
           stackframes = false
           stringchecks = true
           typedpointers = false
-          unitaliases = WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
+          unitaliases = WinTypes\=Windows;WinProcs\=Windows;DbiTypes\=BDE;DbiProcs\=BDE;DbiErrs\=BDE;
           usedebugdcu = false
           usepackages = true
           varstringchecks = true
@@ -779,9 +833,9 @@ begin
         useprojectsettings = []
         usepropertyset = true
         useversionfromdof = false
-        versioninfokeys = "CompanyName=Erik Berry and the GExperts Development Team" +
-                          "FileDescription=GExperts IDE Addin" +
-                          "ProductName=GExperts IDE Addin" +
+        versioninfokeys = "CompanyName\=Erik Berry and the GExperts Development Team" +
+                          "FileDescription\=GExperts IDE Addin" +
+                          "ProductName\=GExperts IDE Addin" +
                           ""
         versioninfopropertysetname = GExpertsVersion
         warningsaserror = false
@@ -803,9 +857,9 @@ begin
           assertions = true
           assignableconst = false
           booleval = false
-          compilerwarnings = "-w-UNSAFE_TYPE=0" +
-                             "-w-UNSAFE_CODE=0" +
-                             "-w-UNSAFE_CAST=0" +
+          compilerwarnings = "-w-UNSAFE_TYPE\=0" +
+                             "-w-UNSAFE_CODE\=0" +
+                             "-w-UNSAFE_CAST\=0" +
                              ""
           consoleapp = false
           debuginfo = false
@@ -845,7 +899,7 @@ begin
           stackframes = false
           stringchecks = true
           typedpointers = false
-          unitaliases = WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
+          unitaliases = WinTypes\=Windows;WinProcs\=Windows;DbiTypes\=BDE;DbiProcs\=BDE;DbiErrs\=BDE;
           usedebugdcu = false
           usepackages = true
           varstringchecks = true
@@ -897,9 +951,9 @@ begin
         useprojectsettings = []
         usepropertyset = true
         useversionfromdof = false
-        versioninfokeys = "CompanyName=Erik Berry and the GExperts Development Team" +
-                          "FileDescription=GExperts IDE Addin" +
-                          "ProductName=GExperts IDE Addin" +
+        versioninfokeys = "CompanyName\=Erik Berry and the GExperts Development Team" +
+                          "FileDescription\=GExperts IDE Addin" +
+                          "ProductName\=GExperts IDE Addin" +
                           ""
         versioninfopropertysetname = GExpertsVersion
         warningsaserror = false
@@ -921,9 +975,9 @@ begin
           assertions = true
           assignableconst = false
           booleval = false
-          compilerwarnings = "-w-UNSAFE_TYPE=0" +
-                             "-w-UNSAFE_CODE=0" +
-                             "-w-UNSAFE_CAST=0" +
+          compilerwarnings = "-w-UNSAFE_TYPE\=0" +
+                             "-w-UNSAFE_CODE\=0" +
+                             "-w-UNSAFE_CAST\=0" +
                              ""
           consoleapp = false
           debuginfo = false
@@ -963,10 +1017,112 @@ begin
           stackframes = false
           stringchecks = true
           typedpointers = false
-          unitaliases = WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;
+          unitaliases = WinTypes\=Windows;WinProcs\=Windows;DbiTypes\=BDE;DbiProcs\=BDE;DbiErrs\=BDE;
           usedebugdcu = false
           usepackages = true
           varstringchecks = true
+        end
+      end
+    end
+  end
+  target
+  begin
+    name = "Sign Binaries"
+    targetid = {FE206804-1636-4572-9A7E-007EEE4D9D44}
+    target.arg
+    begin
+      displayorder = 0
+      name = NameSuffix
+    end
+    rootaction
+    begin
+      action.group
+      begin
+        description = "Sign Binaries"
+        id = {07EC5104-A221-4410-B823-D5BA19F67298}
+        variable
+        begin
+          name = FileToSign
+          variablescope = vtLocal
+          variabletype = btString
+        end
+        action.list.iterator
+        begin
+          failifnoiterations = false
+          fbvariable = FileToSign
+          id = {A3D4060B-C060-4ED6-8C97-41B3D3E7CD1B}
+          listofitems = "%GXSourceDir%\\GExperts%NameSuffix%.dll" +
+                        "%GXBinariesDir%\\%NameSuffix%\\ExpertManager.exe" +
+                        "%GXBinariesDir%\\%NameSuffix%\\GExpertsDebugWindow.exe" +
+                        "%GXBinariesDir%\\%NameSuffix%\\CodeLibrarian.exe" +
+                        "%GXBinariesDir%\\%NameSuffix%\\GExpertsGrep.exe" +
+                        ""
+          listseparator = lsCRLF
+          separatorchar = ,
+          skipblanklines = true
+          action.process.execute
+          begin
+            captureoutput = true
+            enablelivecapture = true
+            enablereturncodecheck = true
+            enabletimeout = false
+            expandimpersonationtoken = false
+            hidewindow = true
+            id = {F90F2759-2AEA-401D-8B3C-5B19B256C23F}
+            impersonateusenetcredonly = false
+            impersonateuser = false
+            logoutput = true
+            logprocessparameters = true
+            maxretryattempts = 2
+            params = "%SignToolSign% %FileToSign%"
+            pauseinterval = 100
+            processoraffinity = 0
+            processpriority = tpNormal
+            programname = %SignTool%
+            redirectstderr = true
+            returncodecomparator = rcLessThanEqualTo
+            returncodetocheck = 0
+            terminateontimeout = false
+            timeoutlength = 1
+            useerrordialogmonitor = false
+            waitforcompletion = true
+          end
+          action.process.execute
+          begin
+            captureoutput = true
+            enablelivecapture = true
+            enablereturncodecheck = true
+            enabletimeout = false
+            expandimpersonationtoken = false
+            hidewindow = true
+            id = {6623A87F-D7A3-4371-9132-F403CBBCDC64}
+            impersonateusenetcredonly = false
+            impersonateuser = false
+            logoutput = true
+            logprocessparameters = true
+            maxretryattempts = 2
+            params = "%SignToolVerify% %FileToSign%"
+            pauseinterval = 100
+            processoraffinity = 0
+            processpriority = tpNormal
+            programname = %SignTool%
+            redirectstderr = true
+            returncodecomparator = rcLessThanEqualTo
+            returncodetocheck = 0
+            terminateontimeout = false
+            timeoutlength = 1
+            useerrordialogmonitor = false
+            waitforcompletion = true
+          end
+        end
+        action.script
+        begin
+          name = Condition
+          script >
+          beginscript
+            CanSign
+          endscript
+          scriptlanguage = VBScript
         end
       end
     end
@@ -987,25 +1143,75 @@ begin
     end
     rootaction
     begin
-      action.innosetup.execute
+      action.group
       begin
-        definitions = "%SetupConfig%=" +
-                      "Version=%ProductVersion%" +
-                      ""
-        id = {A62862FB-231C-4EAB-8EA6-90236C835EDF}
-        innoversion = Inno5
-        scriptfile = %GXInstallDir%\\GExperts.iss
-        showprogress = false
-        unicode = false
-        usecommandline = true
-        usepreprocessor = true
+        id = {FC3C506D-C94B-4A1C-AFC7-D87A180BFF56}
+        variable
+        begin
+          name = SignCommand
+          variablescope = vtLocal
+          variabletype = btString
+        end
+        action.ifthen
+        begin
+          actionlogtitle = "If [%SignFilePath%] <\> []"
+          expandactionlogtitle = false
+          id = {04F799ED-1DDD-4F09-84EB-B522910ACCED}
+          lhsstoragestring = "%CanSign%" +
+                             ""
+          operatorsstoragestring = "\=" +
+                                   ""
+          resultinlogtitle = true
+          rhsstoragestring = "True" +
+                             ""
+          shortcircuitevaluation = true
+          termjoiner = jwOr
+          action.variable.set
+          begin
+            applytoexisting = false
+            doexpandexpression = true
+            forcetype = ftString
+            id = {FC85762B-D1E6-4FA6-9FB8-316694CC7D7A}
+            modifier = smNone
+            newvalue = "SignCommand\=%SignTool% %SignToolSign% $f"
+            variablename = SignCommand
+          end
+        end
+        action.else
+        begin
+          id = {46B2901F-8C04-4D85-8C41-34C29FCAAAA2}
+          action.variable.set
+          begin
+            applytoexisting = false
+            doexpandexpression = true
+            forcetype = ftString
+            id = {185445AE-E2B4-4A51-B2E6-863B962DD1C3}
+            modifier = smNone
+            variablename = SignCommand
+          end
+        end
+        action.innosetup.execute
+        begin
+          definitions = "%SetupConfig%\=" +
+                        "Version\=%ProductVersion%" +
+                        "HelpFile\=%HelpFile%" +
+                        ""
+          id = {A62862FB-231C-4EAB-8EA6-90236C835EDF}
+          innoversion = Inno5
+          scriptfile = %GXInstallDir%\\GExperts.iss
+          showprogress = false
+          signtool = %SignCommand%
+          unicode = false
+          usecommandline = true
+          usepreprocessor = true
+        end
       end
       action.files.delete
       begin
         deletehidden = true
         deletereadonly = true
         failifnofile = false
-        filespec = %GXInstallDir%\\Output\\GX%NameSuffix%-%ProductVersion%.exe
+        filespec = %GXInstallDir%\\Output\\GX%NameSuffix%-%SetupVersion%.exe
         id = {338EC79A-B47F-480E-8646-C2CB55A7541D}
       end
       action.directory.rename
@@ -1026,6 +1232,14 @@ begin
   end
   variable
   begin
+    defaultvalue = false
+    groupname = Signing
+    name = CanSign
+    variablescope = vtProject
+    variabletype = btBoolean
+  end
+  variable
+  begin
     defaultvalue = %GXProjectDir%\\Binaries
     groupname = Dir
     ismacro = true
@@ -1038,6 +1252,13 @@ begin
     groupname = Dir
     ismacro = true
     name = GXDocDir
+    variablescope = vtProject
+  end
+  variable
+  begin
+    defaultvalue = %GXDocDir%
+    groupname = Dir
+    name = GXDocOutputDir
     variablescope = vtProject
   end
   variable
@@ -1061,6 +1282,13 @@ begin
     groupname = Dir
     ismacro = true
     name = GXSourceDir
+    variablescope = vtProject
+  end
+  variable
+  begin
+    defaultvalue = MyHelpFile
+    groupname = Help
+    name = HelpFile
     variablescope = vtProject
   end
   variable
@@ -1104,6 +1332,46 @@ begin
     groupname = Version
     ismacro = true
     name = SetupVersion
+    variablescope = vtProject
+  end
+  variable
+  begin
+    groupname = Signing
+    name = SignFilePath
+    variablescope = vtProject
+    variabletype = btString
+  end
+  variable
+  begin
+    groupname = Signing
+    name = SignPW
+    variablescope = vtProject
+  end
+  variable
+  begin
+    groupname = Signing
+    name = SignTool
+    variablescope = vtProject
+  end
+  variable
+  begin
+    defaultvalue = "sign /v /f \"%SignFilePath%\" /p \"%SignPW%\" /t %TimeStamper%"
+    groupname = Signing
+    ismacro = true
+    name = SignToolSign
+    variablescope = vtProject
+  end
+  variable
+  begin
+    defaultvalue = "verify /pa /v"
+    groupname = Signing
+    name = SignToolVerify
+    variablescope = vtProject
+  end
+  variable
+  begin
+    groupname = Signing
+    name = TimeStamper
     variablescope = vtProject
   end
 end
