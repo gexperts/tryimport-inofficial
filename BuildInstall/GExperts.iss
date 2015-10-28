@@ -8,10 +8,18 @@
   #ifndef Version
     #error Usage: "iscc.exe GExperts.iss /dDelphi7 /dVersion=1.35"
   #endif
+  #ifndef HelpFile
+    #error Usage: "iscc.exe GExperts.iss /dHelpFile=..\Documentation\GExperts.chm
+  #else
+    #if HelpFile="MyHelpFile"
+      #define HelpFile "..\Documentation\GExperts.chm"
+    #endif 
+  #endif
 #else
 ; IDE compiler
   #define RS10
   #define Version "1.38"
+  #define HelpFile "..\Documentation\GExperts.chm"
 #endif
 
 #define Product "GExperts"
@@ -198,13 +206,15 @@ VersionInfoVersion={#Version}
 VersionInfoDescription={#FullName} Setup
 VersionInfoTextVersion={#Version}
 SolidCompression=yes
+SignTool=SignCommand /d $qGExperts Installer$q
 ;OutputBaseFilename=Setup{#DLLSuffix}
+SetupIconFile=GX.ico
 
 [Files]
 Source: ..\Binaries\{#BinaryDir}\ExpertManager.exe; DestDir: {app}; Flags: ignoreversion
 Source: ..\Binaries\{#BinaryDir}\GExpertsDebugWindow.exe; DestDir: {app}; Flags: ignoreversion
 Source: ..\Binaries\{#BinaryDir}\GExpertsGrep.exe; DestDir: {app}; Flags: ignoreversion
-Source: ..\Documentation\GExperts.chm; DestDir: {app}; Flags: ignoreversion
+Source: {#HelpFile}; DestDir: {app}; Flags: ignoreversion
 Source: ..\Source\{#DLLName}; DestDir: {app}; Flags: ignoreversion
 Source: ..\ExternalSource\DbugIntf.pas; DestDir: {app}; Flags: ignoreversion
 Source: ..\Documentation\Readme.txt; DestDir: {app}; Flags: isreadme ignoreversion
