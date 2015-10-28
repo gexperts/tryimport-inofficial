@@ -1190,6 +1190,20 @@ begin
             variablename = SignCommand
           end
         end
+        action.variables.loadfromini
+        begin
+          createvarininiifnotexists = false
+          failifvariablenotdefined = true
+          failifvariablenotininifile = false
+          id = {8E00B3AB-7386-4644-B819-DCC78CA1CFAA}
+          ignorefilenotfound = true
+          inifile = %HelpFile%
+          sectionname = Files
+          variables = "HelpFile" +
+                      ""
+          variabletypes = "String" +
+                          ""
+        end
         action.innosetup.execute
         begin
           definitions = "%SetupConfig%\=" +
