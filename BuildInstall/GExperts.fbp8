@@ -1197,7 +1197,7 @@ begin
           failifvariablenotininifile = false
           id = {8E00B3AB-7386-4644-B819-DCC78CA1CFAA}
           ignorefilenotfound = true
-          inifile = %HelpFile%
+          inifile = %HelpIniFile%
           sectionname = Files
           variables = "HelpFile" +
                       ""
@@ -1303,6 +1303,12 @@ begin
     defaultvalue = MyHelpFile
     groupname = Help
     name = HelpFile
+    variablescope = vtProject
+  end
+  variable
+  begin
+    groupname = Help
+    name = HelpIniFile
     variablescope = vtProject
   end
   variable
