@@ -11,10 +11,6 @@
   #endif
   #ifndef HelpFile
     #error Usage: "iscc.exe GExperts.iss /dHelpFile=..\Documentation\GExperts.chm
-  #else
-    if (HelpFile=="MyHelpFile") {
-      #define HelpFile "..\Documentation\GExperts.chm"
-    }
   #endif
 #else
 ; IDE compiler
