@@ -2,6 +2,7 @@
 ; greater with the included ISPP, available from: http://www.jrsoftware.org/
 
 // TODO: Use ExecAsOriginalUser to register the DLL with the IDE for better Vista elevation support
+;#define ISPPCC_INVOKED
 
 #ifdef ISPPCC_INVOKED
 ; Command line compiler
@@ -11,9 +12,9 @@
   #ifndef HelpFile
     #error Usage: "iscc.exe GExperts.iss /dHelpFile=..\Documentation\GExperts.chm
   #else
-    #if HelpFile="MyHelpFile"
+    if (HelpFile=="MyHelpFile") {
       #define HelpFile "..\Documentation\GExperts.chm"
-    #endif 
+    }
   #endif
 #else
 ; IDE compiler
