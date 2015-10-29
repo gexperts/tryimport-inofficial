@@ -13,6 +13,13 @@ begin
       begin
         description = "Pre-Compile Setup"
         id = {876C51CA-782C-4983-AA68-5FD157A1069C}
+        action.target.execute
+        begin
+          actionlistid = {CB0E6BC5-2B60-4FC0-8DD9-3D735F452530}
+          failifactionlistempty = false
+          id = {21AB5F5A-A7F2-405E-9AE7-DD5AC9111A60}
+          resetdependencychain = false
+        end
         action.variables.loadfromini
         begin
           createvarininiifnotexists = true
@@ -401,6 +408,22 @@ begin
                 end
               end
             end
+            action.target.execute
+            begin
+              actionlistid = {182D561E-2985-42B7-9943-EA8C6035EB93}
+              failifactionlistempty = false
+              id = {3815B75E-8F4B-4483-862D-5FA9CD16456C}
+              resetdependencychain = false
+              action.script
+              begin
+                name = Condition
+                script >
+                beginscript
+                  Upload
+                endscript
+                scriptlanguage = VBScript
+              end
+            end
             action.script
             begin
               name = Condition
@@ -410,6 +433,152 @@ begin
               endscript
               scriptlanguage = JavaScript
             end
+          end
+        end
+      end
+    end
+  end
+  target
+  begin
+    name = "Init BuildVersion"
+    targetid = {CB0E6BC5-2B60-4FC0-8DD9-3D735F452530}
+    rootaction
+    begin
+      action.group
+      begin
+        description = "Init BuildVersion"
+        id = {0CF2B583-1A91-4DA1-B883-C9994E5E644B}
+        variable
+        begin
+          defaultvalue = False
+          name = RepoExists
+          variablescope = vtLocal
+        end
+        action.file.exists
+        begin
+          existsmode = feIgnore
+          fileordirectory = %GXProjectDir%\\.git
+          id = {A422A4A2-4CF3-4F20-9D55-2E999A9202BD}
+          usefilespec = true
+          variable = RepoExists
+        end
+        action.ifthen
+        begin
+          expandactionlogtitle = false
+          id = {3B96B659-649D-4403-B298-A7BD48315A39}
+          lhsstoragestring = "%RepoExists%" +
+                             ""
+          operatorsstoragestring = "\=" +
+                                   ""
+          resultinlogtitle = true
+          rhsstoragestring = "True" +
+                             ""
+          shortcircuitevaluation = true
+          termjoiner = jwOr
+          action.doscmd.execute
+          begin
+            captureoutput = true
+            command = "git rev-list --count HEAD"
+            enablelivecapture = true
+            enablereturncodecheck = true
+            enabletimeout = false
+            expandimpersonationtoken = false
+            hidewindow = true
+            id = {D20F69AE-E55B-4E5C-AC00-3E1E5549970F}
+            impersonateusenetcredonly = false
+            impersonateuser = false
+            logoutput = true
+            logprocessparameters = true
+            params = "git rev-list --count HEAD"
+            processoraffinity = 0
+            processpriority = tpNormal
+            redirectstderr = true
+            returncodecomparator = rcEqualTo
+            returncodetocheck = 0
+            startindir = %GXProjectDir%
+            terminateontimeout = false
+            timeoutlength = 1
+            useerrordialogmonitor = false
+            waitforcompletion = true
+            action.variables.logvalues
+            begin
+              failifnotdefined = true
+              id = {ED1B1AAB-7E76-4C38-8EA5-0BB81BC5887F}
+              logallvariables = false
+              variablestoragestring = "GitRevlistCount" +
+                                      ""
+            end
+            action.string.padding
+            begin
+              actiontypeid = {D2B4A447-A99D-46AC-8C65-D7C2CC48035A}
+              customactionname = "String Padding"
+              description = "String Padding - Revision count -\> BuildVersion"
+              enabletimeout = false
+              id = {CC82D6AF-C071-449C-B6B8-5C2EBBF1692D}
+              impersonateusenetcredonly = false
+              impersonateuser = false
+              terminateontimeout = true
+              timeoutlength = 1
+              as.applytoinput = False
+              as.usinginputvariable = True
+              as.inputvariable = GitRevListCount
+              as.padcharacter = 0
+              as.padlength = 5
+              as.padleft = True
+              as.outputvariable = BuildVersion
+            end
+            action.variables.logvalues
+            begin
+              failifnotdefined = true
+              id = {363FB8D6-58E7-4BD3-8804-18DA49E51CAC}
+              logallvariables = false
+              variablestoragestring = "BuildVersion" +
+                                      "CommitID" +
+                                      ""
+            end
+            action.script
+            begin
+              name = OnStatusMessage
+              script >
+              beginscript
+                GitRevlistCount = StatusMessage.MessageText
+              endscript
+              scriptlanguage = VBScript
+            end
+          end
+        end
+        action.else
+        begin
+          id = {7EF11CE5-E9C5-4854-AA79-2C133A755476}
+          action.datetime.get
+          begin
+            dateformat = ddhhmm
+            fbvariable = BuildVersion
+            forceseparators = false
+            id = {B95A152E-AAD4-4D4E-BA71-DC18497856FD}
+            manipulationtype = Add
+            manipulationunit = Seconds
+            thedate = 42306.5879801505
+            usenow = true
+          end
+        end
+        action.directory.create
+        begin
+          fileordirectory = %GXOutputDir%
+          force = true
+          id = {5BB52B94-F77A-46CE-AB36-32D89B66A425}
+          action.textfile.write
+          begin
+            createifnotexists = true
+            encoding = ANSI
+            expandvariables = true
+            filename = %GXOutputDir%\\buildversion.txt
+            id = {37BA8BA6-3E4A-483D-88AF-7DEA30F3A892}
+            ignorenocontent = true
+            newcontent = "buildversion\=%BuildVersion%" +
+                         "commitid\=%CommitID%"
+            writebom = false
+            writetoposition = toOverwrite
           end
         end
       end
@@ -1237,6 +1406,14 @@ begin
       end
     end
   end
+  target
+  begin
+    name = "Upload Setup"
+    targetid = {182D561E-2985-42B7-9943-EA8C6035EB93}
+    rootaction
+    begin
+    end
+  end
   variable
   begin
     defaultvalue = 0
@@ -1251,6 +1428,18 @@ begin
     name = CanSign
     variablescope = vtProject
     variabletype = btBoolean
+  end
+  variable
+  begin
+    groupname = Version
+    name = CommitID
+    variablescope = vtProject
+  end
+  variable
+  begin
+    groupname = Version
+    name = GitRevListCount
+    variablescope = vtProject
   end
   variable
   begin
@@ -1281,6 +1470,13 @@ begin
     groupname = Dir
     ismacro = true
     name = GXInstallDir
+    variablescope = vtProject
+  end
+  variable
+  begin
+    defaultvalue = %GXInstallDir%\\Output
+    groupname = Dir
+    name = GXOutputDir
     variablescope = vtProject
   end
   variable
@@ -1393,5 +1589,13 @@ begin
     groupname = Signing
     name = TimeStamper
     variablescope = vtProject
+  end
+  variable
+  begin
+    defaultvalue = false
+    groupname = Upload
+    name = Upload
+    variablescope = vtProject
+    variabletype = btBoolean
   end
 end
