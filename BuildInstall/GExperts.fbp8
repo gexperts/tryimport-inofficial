@@ -13,13 +13,6 @@ begin
       begin
         description = "Pre-Compile Setup"
         id = {876C51CA-782C-4983-AA68-5FD157A1069C}
-        action.target.execute
-        begin
-          actionlistid = {CB0E6BC5-2B60-4FC0-8DD9-3D735F452530}
-          failifactionlistempty = false
-          id = {21AB5F5A-A7F2-405E-9AE7-DD5AC9111A60}
-          resetdependencychain = false
-        end
         action.variables.loadfromini
         begin
           createvarininiifnotexists = true
@@ -37,6 +30,13 @@ begin
                           "String" +
                           "String" +
                           ""
+        end
+        action.target.execute
+        begin
+          actionlistid = {CB0E6BC5-2B60-4FC0-8DD9-3D735F452530}
+          failifactionlistempty = false
+          id = {21AB5F5A-A7F2-405E-9AE7-DD5AC9111A60}
+          resetdependencychain = false
         end
         action.path.manipulation
         begin
@@ -579,6 +579,45 @@ begin
                          "commitid\=%CommitID%"
             writebom = false
             writetoposition = toOverwrite
+          end
+          action.xml.document.define
+          begin
+            allowdtds = false
+            expanddocumentnodenamespace = true
+            id = {CA055AD9-1940-4AC8-8337-66FDD036CCB5}
+            parserver = HighestMSXML
+            resolveexternal = true
+            validateonparse = true
+            xmldocsource = sxText
+            xmldocumentname = VersionConfig
+            xmltext = "<?xml version\=\"1.0\" encoding\=\"utf-8\"?\>" +
+                      "<doc\>" +
+                      "<config\>" +
+                      "  <version\>" +
+                      "    <major\>%MajorVersion%</major\>" +
+                      "    <minor\>%MinorVersion%</minor\>" +
+                      "    <release\>%ReleaseVersion%</release\>" +
+                      "    <build\>%BuildVersion%</build\>" +
+                      "  </version\>" +
+                      "</config\>" +
+                      "</doc\>"
+            xmldoc
+            begin
+              name = VersionConfig
+            end
+          end
+          action.xml.document.save
+          begin
+            allowdtds = false
+            expanddocumentnodenamespace = false
+            id = {B3FE8450-C6CA-4FED-8C1C-0B6B3A9F3AC8}
+            outputfile = %GXOutputDir%\\version.xml
+            overwriteoutputfile = true
+            parserver = HighestMSXML
+            prettyformat = true
+            resolveexternal = true
+            validateonparse = true
+            xmldocumentobject = VersionConfig
           end
         end
       end
@@ -1378,6 +1417,7 @@ begin
           definitions = "%SetupConfig%\=" +
                         "Version\=%ProductVersion%" +
                         "HelpFile\=%HelpFile%" +
+                        "Build\=%BuildVersion%" +
                         ""
           id = {A62862FB-231C-4EAB-8EA6-90236C835EDF}
           innoversion = Inno5
@@ -1420,6 +1460,7 @@ begin
     groupname = Version
     name = BuildVersion
     variablescope = vtProject
+    variabletype = btString
   end
   variable
   begin
@@ -1513,6 +1554,7 @@ begin
     groupname = Version
     name = MajorVersion
     variablescope = vtProject
+    variabletype = btString
   end
   variable
   begin
@@ -1520,6 +1562,7 @@ begin
     groupname = Version
     name = MinorVersion
     variablescope = vtProject
+    variabletype = btString
   end
   variable
   begin
@@ -1536,6 +1579,7 @@ begin
     groupname = Version
     name = ReleaseVersion
     variablescope = vtProject
+    variabletype = btString
   end
   variable
   begin
@@ -1549,6 +1593,7 @@ begin
     ismacro = true
     name = SetupVersion
     variablescope = vtProject
+    variabletype = btString
   end
   variable
   begin

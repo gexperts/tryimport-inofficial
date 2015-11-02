@@ -9,6 +9,9 @@
   #ifndef Version
     #error Usage: "iscc.exe GExperts.iss /dDelphi7 /dVersion=1.35"
   #endif
+  #ifndef Build
+    #error Usage: "iscc.exe GExperts.iss /dBuild=1"
+  #endif
   #ifndef HelpFile
     #error Usage: "iscc.exe GExperts.iss /dHelpFile=..\Documentation\GExperts.chm
   #endif
@@ -16,6 +19,7 @@
 ; IDE compiler
   #define RS10
   #define Version "1.38"
+  #define Build "1"
   #define HelpFile "..\Documentation\GExperts.chm"
 #endif
 
@@ -196,12 +200,12 @@ LicenseFile=..\Documentation\License.txt
 InfoBeforeFile=..\Documentation\PreInstall.txt
 AppPublisher={#Product} Development Team
 AppPublisherURL=http://www.gexperts.org/
-AppVersion={#Version}
+AppVersion={#Version}.{#Build}
 AppMutex=GExperts.Addin.For.Borland.IDEs
 UninstallDisplayIcon={app}\ExpertManager.exe
-VersionInfoVersion={#Version}
+VersionInfoVersion={#Version}.{#Build}
 VersionInfoDescription={#FullName} Setup
-VersionInfoTextVersion={#Version}
+VersionInfoTextVersion={#Version}.{#Build}
 SolidCompression=yes
 SignTool=SignCommand /d $qGExperts Installer$q
 ;OutputBaseFilename=Setup{#DLLSuffix}
