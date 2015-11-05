@@ -484,41 +484,60 @@ begin
             timeoutlength = 1
             useerrordialogmonitor = false
             waitforcompletion = true
-            action.variables.logvalues
+            action.doscmd.execute
             begin
-              failifnotdefined = true
-              id = {ED1B1AAB-7E76-4C38-8EA5-0BB81BC5887F}
-              logallvariables = false
-              variablestoragestring = "GitRevlistCount" +
-                                      ""
-            end
-            action.string.padding
-            begin
-              actiontypeid = {D2B4A447-A99D-46AC-8C65-D7C2CC48035A}
-              customactionname = "String Padding"
-              description = "String Padding - Revision count -\> BuildVersion"
+              captureoutput = true
+              command = "git rev-parse HEAD"
+              enablelivecapture = true
+              enablereturncodecheck = true
               enabletimeout = false
-              id = {CC82D6AF-C071-449C-B6B8-5C2EBBF1692D}
+              expandimpersonationtoken = false
+              hidewindow = true
+              id = {2A6A1B05-A3DE-49C6-913E-E0F67FE4B70B}
               impersonateusenetcredonly = false
               impersonateuser = false
-              terminateontimeout = true
-              timeoutlength = 1
-              as.applytoinput = False
-              as.usinginputvariable = True
-              as.inputvariable = GitRevListCount
-              as.padcharacter = 0
-              as.padlength = 5
-              as.padleft = True
-              as.outputvariable = BuildVersion
-            end
-            action.variables.logvalues
-            begin
-              failifnotdefined = true
-              id = {363FB8D6-58E7-4BD3-8804-18DA49E51CAC}
-              logallvariables = false
-              variablestoragestring = "BuildVersion" +
-                                      "CommitID" +
-                                      ""
+              logoutput = true
+              logprocessparameters = true
+              params = "git rev-parse HEAD"
+              processoraffinity = 0
+              processpriority = tpNormal
+              redirectstderr = true
+              returncodecomparator = rcEqualTo
+              returncodetocheck = 0
+              startindir = %GXProjectDir%
+              terminateontimeout = false
+              timeoutlength = 0
+              useerrordialogmonitor = false
+              waitforcompletion = true
+              action.string.padding
+              begin
+                actiontypeid = {D2B4A447-A99D-46AC-8C65-D7C2CC48035A}
+                customactionname = "String Padding"
+                description = "String Padding - Revision count -\> BuildVersion"
+                enabletimeout = false
+                id = {CC82D6AF-C071-449C-B6B8-5C2EBBF1692D}
+                impersonateusenetcredonly = false
+                impersonateuser = false
+                terminateontimeout = true
+                timeoutlength = 1
+                as.applytoinput = False
+                as.usinginputvariable = True
+                as.inputvariable = GitRevListCount
+                as.padcharacter = 0
+                as.padlength = 5
+                as.padleft = True
+                as.outputvariable = BuildVersion
+              end
+              action.variables.logvalues
+              begin
+                failifnotdefined = true
+                id = {363FB8D6-58E7-4BD3-8804-18DA49E51CAC}
+                logallvariables = false
+                variablestoragestring = "BuildVersion" +
+                                        "CommitID" +
+                                        "GitRevListCount" +
+                                        ""
+              end
             end
             action.script
             begin
