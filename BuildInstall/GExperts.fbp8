@@ -408,22 +408,6 @@ begin
                 end
               end
             end
-            action.target.execute
-            begin
-              actionlistid = {182D561E-2985-42B7-9943-EA8C6035EB93}
-              failifactionlistempty = false
-              id = {3815B75E-8F4B-4483-862D-5FA9CD16456C}
-              resetdependencychain = false
-              action.script
-              begin
-                name = Condition
-                script >
-                beginscript
-                  Upload
-                endscript
-                scriptlanguage = VBScript
-              end
-            end
             action.script
             begin
               name = Condition
@@ -1446,14 +1430,6 @@ begin
       end
     end
   end
-  target
-  begin
-    name = "Upload Setup"
-    targetid = {182D561E-2985-42B7-9943-EA8C6035EB93}
-    rootaction
-    begin
-    end
-  end
   variable
   begin
     defaultvalue = 0
@@ -1634,13 +1610,5 @@ begin
     groupname = Signing
     name = TimeStamper
     variablescope = vtProject
-  end
-  variable
-  begin
-    defaultvalue = false
-    groupname = Upload
-    name = Upload
-    variablescope = vtProject
-    variabletype = btBoolean
   end
 end
