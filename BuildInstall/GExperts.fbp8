@@ -538,6 +538,15 @@ begin
                                         "GitRevListCount" +
                                         ""
               end
+              action.script
+              begin
+                name = OnStatusMessage
+                script >
+                beginscript
+                  CommitID = StatusMessage.MessageText
+                endscript
+                scriptlanguage = VBScript
+              end
             end
             action.script
             begin
