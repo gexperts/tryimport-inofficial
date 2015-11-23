@@ -1,0 +1,6 @@
+# generated Finalbuilder files
+*.fbl*
+*.fb8lck
+*.fbpInf
+*.fbpbrk
+output/
