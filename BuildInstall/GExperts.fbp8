@@ -1548,6 +1548,7 @@ begin
   end
   variable
   begin
+    defaultvalue = ..\\..\\help\\HelpFile.ini
     groupname = Help
     name = HelpIniFile
     variablescope = vtProject

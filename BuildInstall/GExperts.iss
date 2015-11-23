@@ -207,7 +207,9 @@ VersionInfoVersion={#Version}.{#Build}
 VersionInfoDescription={#FullName} Setup
 VersionInfoTextVersion={#Version}.{#Build}
 SolidCompression=yes
+#ifdef SignCommand
 SignTool=SignCommand /d $qGExperts Installer$q
+#endif
 ;OutputBaseFilename=Setup{#DLLSuffix}
 SetupIconFile=GX.ico
 
