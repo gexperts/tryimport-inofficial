@@ -420,6 +420,18 @@ begin
           end
         end
       end
+      action.textfile.write
+      begin
+        createifnotexists = true
+        encoding = ANSI
+        expandvariables = true
+        filename = %GXOutputDir%\\gexperts-buildlog.txt
+        id = {B8E6937B-273D-4364-99DD-5D2F9FB26289}
+        ignorenocontent = true
+        newcontent = %BuildLog%
+        writebom = true
+        writetoposition = toOverwrite
+      end
     end
   end
   target
@@ -714,6 +726,15 @@ begin
           endscript
           scriptlanguage = JavaScript
         end
+        action.script
+        begin
+          name = OnStatusMessage
+          script >
+          beginscript
+            BuildLog = BuildLog & StatusMessage.MessageText & vbCrLf
+          endscript
+          scriptlanguage = VBScript
+        end
         delphi.compileroptions
         begin
           alwaysuseconditionalsfromdof = false
@@ -832,6 +853,15 @@ begin
           endscript
           scriptlanguage = JavaScript
         end
+        action.script
+        begin
+          name = OnStatusMessage
+          script >
+          beginscript
+            BuildLog = BuildLog & StatusMessage.MessageText & vbCrLf
+          endscript
+          scriptlanguage = VBScript
+        end
         delphi.compileroptions
         begin
           alwaysuseconditionalsfromdof = false
@@ -949,6 +979,16 @@ begin
             Action.CompilerVersion = CompilerVersion;
           endscript
           scriptlanguage = JavaScript
+        end
+        action.script
+        begin
+          name = OnStatusMessage
+          script >
+          beginscript
+            BuildLog = BuildLog & StatusMessage.MessageText & vbCrLf
+            
+          endscript
+          scriptlanguage = VBScript
         end
         delphi.compileroptions
         begin
@@ -1069,6 +1109,16 @@ begin
           endscript
           scriptlanguage = JavaScript
         end
+        action.script
+        begin
+          name = OnStatusMessage
+          script >
+          beginscript
+            BuildLog = BuildLog & StatusMessage.MessageText & vbCrLf
+            
+          endscript
+          scriptlanguage = VBScript
+        end
         delphi.compileroptions
         begin
           alwaysuseconditionalsfromdof = false
@@ -1186,6 +1236,16 @@ begin
             Action.CompilerVersion = CompilerVersion;
           endscript
           scriptlanguage = JavaScript
+        end
+        action.script
+        begin
+          name = OnStatusMessage
+          script >
+          beginscript
+            BuildLog = BuildLog & StatusMessage.MessageText & vbCrLf
+            
+          endscript
+          scriptlanguage = VBScript
         end
         delphi.compileroptions
         begin
@@ -1439,6 +1499,15 @@ begin
           unicode = false
           usecommandline = true
           usepreprocessor = true
+          action.script
+          begin
+            name = OnStatusMessage
+            script >
+            beginscript
+              BuildLog = BuildLog & StatusMessage.MessageText & vbCrLf
+            endscript
+            scriptlanguage = VBScript
+          end
         end
       end
       action.files.delete
@@ -1457,6 +1526,12 @@ begin
         sourcefile = %GXInstallDir%\\Output\\Setup.exe
       end
     end
+  end
+  variable
+  begin
+    name = BuildLog
+    variablescope = vtProject
+    variabletype = btString
   end
   variable
   begin
@@ -1521,6 +1596,7 @@ begin
   begin
     defaultvalue = %GXInstallDir%\\Output
     groupname = Dir
+    ismacro = true
     name = GXOutputDir
     variablescope = vtProject
   end
