@@ -596,10 +596,11 @@ begin
             createifnotexists = true
             encoding = ANSI
             expandvariables = true
-            filename = %GXOutputDir%\\buildversion.txt
+            filename = %GXOutputDir%\\buildversion.ini
             id = {37BA8BA6-3E4A-483D-88AF-7DEA30F3A892}
             ignorenocontent = true
-            newcontent = "buildversion\=%BuildVersion%" +
+            newcontent = "[build]" +
+                         "buildversion\=%BuildVersion%" +
                          "commitid\=%CommitID%"
             writebom = false
             writetoposition = toOverwrite
