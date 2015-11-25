@@ -1505,7 +1505,7 @@ begin
             name = OnStatusMessage
             script >
             beginscript
-              if instr(StatusMessage.MessageText, "Running ISCC ") < 0 then
+              if instr(StatusMessage.MessageText, "Running ISCC ") < 1 then
                 BuildLog = BuildLog & StatusMessage.MessageText & vbCrLf
             endscript
             scriptlanguage = VBScript
