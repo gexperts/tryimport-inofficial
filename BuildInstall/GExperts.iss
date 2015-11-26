@@ -4,6 +4,9 @@
 // TODO: Use ExecAsOriginalUser to register the DLL with the IDE for better Vista elevation support
 ;#define ISPPCC_INVOKED
 
+#define Product "GExperts"
+#define InstallerParam   " /d $q" + Product + " Installer$q"
+
 #ifdef ISPPCC_INVOKED
 ; Command line compiler
   #ifndef Version
@@ -15,15 +18,19 @@
   #ifndef HelpFile
     #error Usage: "iscc.exe GExperts.iss /dHelpFile=..\Documentation\GExperts.chm
   #endif
+  #ifdef SignCommand
+    #define SignCommand  SignCommand + InstallerParam
+    #pragma warning "Value of variable SignCommand is: " + SignCommand
+  #endif
 #else
 ; IDE compiler
   #define RS10
   #define Version "1.38"
   #define Build "1"
   #define HelpFile "..\Documentation\GExperts.chm"
+  #undef SignCommand
 #endif
 
-#define Product "GExperts"
 #define VerRegKey "1.3"
 #define RegCompany   "Borland"
 
@@ -180,11 +187,11 @@
   #error Usage: "isppcc.exe GExperts.iss /dDelphi7 /dVersion=1.38"
 #endif
 
-#define FullName    Product +" for "+ IDELongName +" "+ IDEVer
+#define FullName    Product + " for " + IDELongName + " " + IDEVer
 
 ; IDEShortName + IDEVer
 #define BinaryDir   DLLSuffix
-#define DLLName     "GExperts" + DLLSuffix + ".dll"
+#define DLLName     Product + DLLSuffix + ".dll"
 #define AppIDValue  Product + IDEShortName + IDEVer
 #define ThisYear    GetDateTimeString('yyyy', '', '');
 
@@ -208,7 +215,8 @@ VersionInfoDescription={#FullName} Setup
 VersionInfoTextVersion={#Version}.{#Build}
 SolidCompression=yes
 #ifdef SignCommand
-SignTool=SignCommand /d $qGExperts Installer$q
+#pragma warning "Value of variable SignCommand is: " + SignCommand
+SignTool=SignCommand
 #endif
 ;OutputBaseFilename=Setup{#DLLSuffix}
 SetupIconFile=GX.ico

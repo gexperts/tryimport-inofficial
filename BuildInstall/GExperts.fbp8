@@ -765,7 +765,7 @@ begin
           includetd32 = false
           inlining = inOn
           iochecking = true
-          librarypath = $(BDSLIB)\\$(Platform)\\release;$(BDSUSERDIR)\\Imports;$(BDS)\\Imports;$(BDSCOMMONDIR)\\Dcp;$(BDS)\\include
+          librarypath = $(BDSLIB)\\$(Platform)\\release;$(BDSUSERDIR)\\Imports;$(BDS)\\Imports;$(BDSCOMMONDIR)\\Dcp;$(BDS)\\include;d:\\F\\Delphi-Komponenten\\JVCL\\JVCL349CompleteJCL27-Build5676\\jcl\\lib\\d23\\win32;d:\\F\\Delphi-Komponenten\\JVCL\\JVCL349CompleteJCL27-Build5676\\jcl\\source\\include;d:\\F\\Delphi-Komponenten\\JVCL\\JVCL349CompleteJCL27-Build5676\\jvcl\\lib\\D23\\win32;d:\\F\\Delphi-Komponenten\\JVCL\\jcl_2015-11-10\\jcl\\lib\\d23\\win32;d:\\F\\Delphi-Komponenten\\JVCL\\jcl_2015-11-10\\jcl\\source\\include;d:\\F\\Delphi-Komponenten\\JVCL\\jvcl_2015-11-10\\jvcl\\lib\\D23\\win32;d:\\F\\Delphi-Komponenten\\JVCL\\jvcl_2015-11-10\\jvcl\\common;d:\\F\\Delphi-Komponenten\\JVCL\\jvcl_2015-11-10\\jvcl\\Resources
           linkeroutput = 0
           localsymbols = false
           mapfile = 0
@@ -866,7 +866,7 @@ begin
         delphi.compileroptions
         begin
           alwaysuseconditionalsfromdof = false
-          alwaysusedelphilibrarypath = false
+          alwaysusedelphilibrarypath = true
           alwaysusedofsearchpath = false
           assertions = true
           assignableconst = false
@@ -892,7 +892,7 @@ begin
           includetd32 = false
           inlining = inOn
           iochecking = true
-          librarypath = $(BDSLIB)\\$(Platform)\\release;$(BDSUSERDIR)\\Imports;$(BDS)\\Imports;$(BDSCOMMONDIR)\\Dcp;$(BDS)\\include
+          librarypath = $(BDSLIB)\\$(Platform)\\release;$(BDSUSERDIR)\\Imports;$(BDS)\\Imports;$(BDSCOMMONDIR)\\Dcp;$(BDS)\\include;d:\\F\\Delphi-Komponenten\\JVCL\\JVCL349CompleteJCL27-Build5676\\jcl\\lib\\d23\\win32;d:\\F\\Delphi-Komponenten\\JVCL\\JVCL349CompleteJCL27-Build5676\\jcl\\source\\include;d:\\F\\Delphi-Komponenten\\JVCL\\JVCL349CompleteJCL27-Build5676\\jvcl\\lib\\D23\\win32;d:\\F\\Delphi-Komponenten\\JVCL\\jcl_2015-11-10\\jcl\\lib\\d23\\win32;d:\\F\\Delphi-Komponenten\\JVCL\\jcl_2015-11-10\\jcl\\source\\include;d:\\F\\Delphi-Komponenten\\JVCL\\jvcl_2015-11-10\\jvcl\\lib\\D23\\win32;d:\\F\\Delphi-Komponenten\\JVCL\\jvcl_2015-11-10\\jvcl\\common;d:\\F\\Delphi-Komponenten\\JVCL\\jvcl_2015-11-10\\jvcl\\Resources
           linkeroutput = 0
           localsymbols = false
           mapfile = 0
@@ -994,7 +994,7 @@ begin
         delphi.compileroptions
         begin
           alwaysuseconditionalsfromdof = false
-          alwaysusedelphilibrarypath = false
+          alwaysusedelphilibrarypath = true
           alwaysusedofsearchpath = false
           assertions = true
           assignableconst = false
@@ -1020,7 +1020,7 @@ begin
           includetd32 = false
           inlining = inOn
           iochecking = true
-          librarypath = $(BDSLIB)\\$(Platform)\\release;$(BDSUSERDIR)\\Imports;$(BDS)\\Imports;$(BDSCOMMONDIR)\\Dcp;$(BDS)\\include
+          librarypath = $(BDSLIB)\\$(Platform)\\release;$(BDSUSERDIR)\\Imports;$(BDS)\\Imports;$(BDSCOMMONDIR)\\Dcp;$(BDS)\\include;d:\\F\\Delphi-Komponenten\\JVCL\\JVCL349CompleteJCL27-Build5676\\jcl\\lib\\d23\\win32;d:\\F\\Delphi-Komponenten\\JVCL\\JVCL349CompleteJCL27-Build5676\\jcl\\source\\include;d:\\F\\Delphi-Komponenten\\JVCL\\JVCL349CompleteJCL27-Build5676\\jvcl\\lib\\D23\\win32;d:\\F\\Delphi-Komponenten\\JVCL\\jcl_2015-11-10\\jcl\\lib\\d23\\win32;d:\\F\\Delphi-Komponenten\\JVCL\\jcl_2015-11-10\\jcl\\source\\include;d:\\F\\Delphi-Komponenten\\JVCL\\jvcl_2015-11-10\\jvcl\\lib\\D23\\win32;d:\\F\\Delphi-Komponenten\\JVCL\\jvcl_2015-11-10\\jvcl\\common;d:\\F\\Delphi-Komponenten\\JVCL\\jvcl_2015-11-10\\jvcl\\Resources
           linkeroutput = 0
           localsymbols = false
           mapfile = 0
@@ -1123,7 +1123,7 @@ begin
         delphi.compileroptions
         begin
           alwaysuseconditionalsfromdof = false
-          alwaysusedelphilibrarypath = false
+          alwaysusedelphilibrarypath = true
           alwaysusedofsearchpath = false
           assertions = true
           assignableconst = false
@@ -1149,7 +1149,7 @@ begin
           includetd32 = false
           inlining = inOn
           iochecking = true
-          librarypath = $(BDSLIB)\\$(Platform)\\release;$(BDSUSERDIR)\\Imports;$(BDS)\\Imports;$(BDSCOMMONDIR)\\Dcp;$(BDS)\\include
+          librarypath = $(BDSLIB)\\$(Platform)\\release;$(BDSUSERDIR)\\Imports;$(BDS)\\Imports;$(BDSCOMMONDIR)\\Dcp;$(BDS)\\include;d:\\F\\Delphi-Komponenten\\JVCL\\JVCL349CompleteJCL27-Build5676\\jcl\\lib\\d23\\win32;d:\\F\\Delphi-Komponenten\\JVCL\\JVCL349CompleteJCL27-Build5676\\jcl\\source\\include;d:\\F\\Delphi-Komponenten\\JVCL\\JVCL349CompleteJCL27-Build5676\\jvcl\\lib\\D23\\win32;d:\\F\\Delphi-Komponenten\\JVCL\\jcl_2015-11-10\\jcl\\lib\\d23\\win32;d:\\F\\Delphi-Komponenten\\JVCL\\jcl_2015-11-10\\jcl\\source\\include;d:\\F\\Delphi-Komponenten\\JVCL\\jvcl_2015-11-10\\jvcl\\lib\\D23\\win32;d:\\F\\Delphi-Komponenten\\JVCL\\jvcl_2015-11-10\\jvcl\\common;d:\\F\\Delphi-Komponenten\\JVCL\\jvcl_2015-11-10\\jvcl\\Resources
           linkeroutput = 0
           localsymbols = false
           mapfile = 0
@@ -1251,7 +1251,7 @@ begin
         delphi.compileroptions
         begin
           alwaysuseconditionalsfromdof = false
-          alwaysusedelphilibrarypath = false
+          alwaysusedelphilibrarypath = true
           alwaysusedofsearchpath = false
           assertions = true
           assignableconst = false
@@ -1277,7 +1277,7 @@ begin
           includetd32 = false
           inlining = inOn
           iochecking = true
-          librarypath = $(BDSLIB)\\$(Platform)\\release;$(BDSUSERDIR)\\Imports;$(BDS)\\Imports;$(BDSCOMMONDIR)\\Dcp;$(BDS)\\include
+          librarypath = $(BDSLIB)\\$(Platform)\\release;$(BDSUSERDIR)\\Imports;$(BDS)\\Imports;$(BDSCOMMONDIR)\\Dcp;$(BDS)\\include;d:\\F\\Delphi-Komponenten\\JVCL\\JVCL349CompleteJCL27-Build5676\\jcl\\lib\\d23\\win32;d:\\F\\Delphi-Komponenten\\JVCL\\JVCL349CompleteJCL27-Build5676\\jcl\\source\\include;d:\\F\\Delphi-Komponenten\\JVCL\\JVCL349CompleteJCL27-Build5676\\jvcl\\lib\\D23\\win32;d:\\F\\Delphi-Komponenten\\JVCL\\jcl_2015-11-10\\jcl\\lib\\d23\\win32;d:\\F\\Delphi-Komponenten\\JVCL\\jcl_2015-11-10\\jcl\\source\\include;d:\\F\\Delphi-Komponenten\\JVCL\\jvcl_2015-11-10\\jvcl\\lib\\D23\\win32;d:\\F\\Delphi-Komponenten\\JVCL\\jvcl_2015-11-10\\jvcl\\common;d:\\F\\Delphi-Komponenten\\JVCL\\jvcl_2015-11-10\\jvcl\\Resources
           linkeroutput = 0
           localsymbols = false
           mapfile = 0
@@ -1491,6 +1491,7 @@ begin
                         "Version\=%ProductVersion%" +
                         "HelpFile\=%HelpFile%" +
                         "Build\=%BuildVersion%" +
+                        "SignCommand\=%SignCommand%" +
                         ""
           id = {A62862FB-231C-4EAB-8EA6-90236C835EDF}
           innoversion = Inno5
@@ -1505,8 +1506,10 @@ begin
             name = OnStatusMessage
             script >
             beginscript
-              if instr(StatusMessage.MessageText, "Running ISCC ") < 1 then
+              if (instr(StatusMessage.MessageText, "SignCommand=") < 1) and (instr(StatusMessage.MessageText, "Running Sign Tool command") < 1) then
                 BuildLog = BuildLog & StatusMessage.MessageText & vbCrLf
+              else
+                BuildLog = BuildLog & vbCrLf & vbCrLf
               end if
             endscript
             scriptlanguage = VBScript
