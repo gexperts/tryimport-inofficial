@@ -220,6 +220,8 @@ SignTool=SignCommand
 #endif
 ;OutputBaseFilename=Setup{#DLLSuffix}
 SetupIconFile=GX.ico
+WizardImageFile=GXLarge.bmp
+WizardSmallImageFile=GXSmall.bmp
 
 [Files]
 Source: ..\Binaries\{#BinaryDir}\ExpertManager.exe; DestDir: {app}; Flags: ignoreversion
