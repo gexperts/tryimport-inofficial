@@ -219,7 +219,7 @@
   #error Usage: "isppcc.exe GExperts.iss /dDelphi7 /dVersion=1.38"
 #endif
 
-#define FullName    Product + " for " + IDELongName + " " + IDEVer
+#define FullName    Product + " for " + IDELongName + " " + IDEVer + " " + IDEVerExt
 
 ; IDEShortName + IDEVer
 #define BinaryDir   DLLSuffix
@@ -248,10 +248,8 @@ VersionInfoTextVersion={#Version}.{#Build}
 SolidCompression=yes
 #ifdef SignCommand1
 #pragma warning "Value of variable SignCommand1 is: " + SignCommand1
-SignTool=SignCommand1
-#endif
-#ifdef SignCommand2
 #pragma warning "Value of variable SignCommand2 is: " + SignCommand2
+SignTool=SignCommand1
 SignTool=SignCommand2
 #endif
 ;OutputBaseFilename=Setup{#DLLSuffix}
