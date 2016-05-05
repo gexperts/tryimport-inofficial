@@ -1485,7 +1485,7 @@ begin
             forcetype = ftString
             id = {FC85762B-D1E6-4FA6-9FB8-316694CC7D7A}
             modifier = smNone
-            newvalue = "SignCommand\=%SignTool% %SignToolSign1% $f"
+            newvalue = "SignCommand1\=%SignTool% %SignToolSign1% $f"
             variablename = SignCommand1
           end
           action.variable.set
@@ -1496,7 +1496,7 @@ begin
             forcetype = ftString
             id = {121213DF-FEEA-4851-AC22-3EAD0D94A90B}
             modifier = smNone
-            newvalue = "SignCommand\=%SignTool% %SignToolSign2% $f"
+            newvalue = "SignCommand2\=%SignTool% %SignToolSign2% $f"
             variablename = SignCommand2
           end
         end
