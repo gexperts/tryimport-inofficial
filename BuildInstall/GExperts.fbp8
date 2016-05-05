@@ -280,7 +280,7 @@ begin
           lhsstoragestring = "%SignFilePath%" +
                              "%SignPW%" +
                              "%SignTool%" +
-                             "%TimeStamper%" +
+                             "%TimeStampServer_SHA-1%" +
                              ""
           operatorsstoragestring = "<\>" +
                                    "<\>" +
@@ -987,7 +987,6 @@ begin
           script >
           beginscript
             BuildLog = BuildLog & StatusMessage.MessageText & vbCrLf
-            
           endscript
           scriptlanguage = VBScript
         end
@@ -1116,7 +1115,6 @@ begin
           script >
           beginscript
             BuildLog = BuildLog & StatusMessage.MessageText & vbCrLf
-            
           endscript
           scriptlanguage = VBScript
         end
@@ -1244,7 +1242,6 @@ begin
           script >
           beginscript
             BuildLog = BuildLog & StatusMessage.MessageText & vbCrLf
-            
           endscript
           scriptlanguage = VBScript
         end
@@ -1355,7 +1352,34 @@ begin
             logoutput = true
             logprocessparameters = true
             maxretryattempts = 2
-            params = "%SignToolSign% %FileToSign%"
+            params = "%SignToolSign1% %FileToSign%"
+            pauseinterval = 100
+            processoraffinity = 0
+            processpriority = tpNormal
+            programname = %SignTool%
+            redirectstderr = true
+            returncodecomparator = rcLessThanEqualTo
+            returncodetocheck = 0
+            terminateontimeout = false
+            timeoutlength = 1
+            useerrordialogmonitor = false
+            waitforcompletion = true
+          end
+          action.process.execute
+          begin
+            captureoutput = true
+            enablelivecapture = true
+            enablereturncodecheck = true
+            enabletimeout = false
+            expandimpersonationtoken = false
+            hidewindow = true
+            id = {3766EA98-9DA9-4CB0-8F1D-5974FC3476CE}
+            impersonateusenetcredonly = false
+            impersonateuser = false
+            logoutput = true
+            logprocessparameters = true
+            maxretryattempts = 2
+            params = "%SignToolSign2% %FileToSign%"
             pauseinterval = 100
             processoraffinity = 0
             processpriority = tpNormal
@@ -1429,7 +1453,13 @@ begin
         id = {FC3C506D-C94B-4A1C-AFC7-D87A180BFF56}
         variable
         begin
-          name = SignCommand
+          name = SignCommand1
+          variablescope = vtLocal
+          variabletype = btString
+        end
+        variable
+        begin
+          name = SignCommand2
           variablescope = vtLocal
           variabletype = btString
         end
@@ -1449,13 +1479,25 @@ begin
           termjoiner = jwOr
           action.variable.set
           begin
+            actionlogtitle = "Set Variable SignCommand to [ SignCommand\=%SignTool% %SignToolSign1% $f ]"
             applytoexisting = false
             doexpandexpression = true
             forcetype = ftString
             id = {FC85762B-D1E6-4FA6-9FB8-316694CC7D7A}
             modifier = smNone
-            newvalue = "SignCommand\=%SignTool% %SignToolSign% $f"
-            variablename = SignCommand
+            newvalue = "SignCommand\=%SignTool% %SignToolSign1% $f"
+            variablename = SignCommand1
+          end
+          action.variable.set
+          begin
+            actionlogtitle = "Set Variable SignCommand to [ SignCommand\=%SignTool% %SignToolSign1% $f ]"
+            applytoexisting = false
+            doexpandexpression = true
+            forcetype = ftString
+            id = {121213DF-FEEA-4851-AC22-3EAD0D94A90B}
+            modifier = smNone
+            newvalue = "SignCommand\=%SignTool% %SignToolSign2% $f"
+            variablename = SignCommand2
           end
         end
         action.else
@@ -1468,7 +1510,16 @@ begin
             forcetype = ftString
             id = {185445AE-E2B4-4A51-B2E6-863B962DD1C3}
             modifier = smNone
-            variablename = SignCommand
+            variablename = SignCommand1
+          end
+          action.variable.set
+          begin
+            applytoexisting = false
+            doexpandexpression = true
+            forcetype = ftString
+            id = {239703BB-CD76-4B3A-9115-C8F1A7DDA0B9}
+            modifier = smNone
+            variablename = SignCommand2
           end
         end
         action.variables.loadfromini
@@ -1491,13 +1542,14 @@ begin
                         "Version\=%ProductVersion%" +
                         "HelpFile\=%HelpFile%" +
                         "Build\=%BuildVersion%" +
-                        "SignCommand\=%SignCommand%" +
+                        "SignCommand1\=%SignCommand1%" +
+                        "SignCommand2\=%SignCommand2%" +
                         ""
           id = {A62862FB-231C-4EAB-8EA6-90236C835EDF}
           innoversion = Inno5
           scriptfile = %GXInstallDir%\\GExperts.iss
           showprogress = false
-          signtool = %SignCommand%
+          signtool = %SignCommand1%
           unicode = false
           usecommandline = true
           usepreprocessor = true
@@ -1703,10 +1755,18 @@ begin
   end
   variable
   begin
-    defaultvalue = "sign /v /f \"%SignFilePath%\" /p \"%SignPW%\" /t %TimeStamper%"
+    defaultvalue = "sign /f \"%SignFilePath%\" /p \"%SignPW%\" /fd sha1 /t %TimeStampServer_SHA-1% /v"
     groupname = Signing
     ismacro = true
-    name = SignToolSign
+    name = SignToolSign1
+    variablescope = vtProject
+  end
+  variable
+  begin
+    defaultvalue = "sign /f \"%SignFilePath%\" /p \"%SignPW%\" /fd sha256 /tr %TimeStampServer_SHA-2%?td\=sha256 /as /v"
+    groupname = Signing
+    ismacro = true
+    name = SignToolSign2
     variablescope = vtProject
   end
   variable
@@ -1719,7 +1779,13 @@ begin
   variable
   begin
     groupname = Signing
-    name = TimeStamper
+    name = TimeStampServer_SHA-1
+    variablescope = vtProject
+  end
+  variable
+  begin
+    groupname = Signing
+    name = TimeStampServer_SHA-2
     variablescope = vtProject
   end
 end

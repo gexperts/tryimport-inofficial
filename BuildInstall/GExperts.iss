@@ -18,17 +18,22 @@
   #ifndef HelpFile
     #error Usage: "iscc.exe GExperts.iss /dHelpFile=..\Documentation\GExperts.chm
   #endif
-  #ifdef SignCommand
-    #define SignCommand  SignCommand + InstallerParam
-    #pragma warning "Value of variable SignCommand is: " + SignCommand
+  #ifdef SignCommand1
+    #define SignCommand1  SignCommand1 + InstallerParam
+    #pragma warning "Value of variable SignCommand1 is: " + SignCommand1
+  #endif
+  #ifdef SignCommand2
+    #define SignCommand2  SignCommand2 + InstallerParam
+    #pragma warning "Value of variable SignCommand2 is: " + SignCommand2
   #endif
 #else
 ; IDE compiler
-  #define RS10
+  #define RS10Seattle
   #define Version "1.38"
   #define Build "1"
   #define HelpFile "..\Documentation\GExperts.chm"
-  #undef SignCommand
+  #undef SignCommand1
+  #undef SignCommand2
 #endif
 
 #define VerRegKey "1.3"
@@ -38,6 +43,7 @@
   #define IDEShortName "Delphi"
   #define IDELongName  "Delphi"
   #define IDEVer       "6"
+  #define IDEVerExt    ""
   #define DLLSuffix    "D6"
   #define IDERegName   "Delphi"
   #define IDERegVer    "6"
@@ -46,6 +52,7 @@
   #define IDEShortName "Delphi"
   #define IDELongName  "Delphi"
   #define IDEVer       "7"
+  #define IDEVerExt    ""
   #define DLLSuffix    "D7"
   #define IDERegName   "Delphi"
   #define IDERegVer    "7"
@@ -54,6 +61,7 @@
   #define IDEShortName "Delphi"
   #define IDELongName  "Delphi"
   #define IDEVer       "8"
+  #define IDEVerExt    ""
   #define DLLSuffix    "D8"
   #define IDERegName   "BDS"
   #define IDERegVer    "2"
@@ -62,6 +70,7 @@
   #define IDEShortName "Delphi"
   #define IDELongName  "Delphi"
   #define IDEVer       "2005"
+  #define IDEVerExt    ""
   #define DLLSuffix    "Delphi2005"
   #define IDERegName   "BDS"
   #define IDERegVer    "3"
@@ -70,6 +79,7 @@
   #define IDEShortName "BDS"
   #define IDELongName  "BDS"
   #define IDEVer       "2006"
+  #define IDEVerExt    ""
   #define DLLSuffix    "BDS2006"
   #define IDERegName   "BDS"
   #define IDERegVer    "4"
@@ -78,6 +88,7 @@
   #define IDEShortName "Delphi"
   #define IDELongName  "Delphi"
   #define IDEVer       "2007"
+  #define IDEVerExt    ""
   #define DLLSuffix    "Delphi2007"
   #define IDERegName   "BDS"
   #define IDERegVer    "5"
@@ -86,6 +97,7 @@
   #define IDEShortName "RADStudio"
   #define IDELongName  "RAD Studio"
   #define IDEVer       "2009"
+  #define IDEVerExt    ""
   #define DLLSuffix    "RS2009"
   #define IDERegName   "BDS"
   #define IDERegVer    "6"
@@ -95,6 +107,7 @@
   #define IDEShortName "RADStudio"
   #define IDELongName  "RAD Studio"
   #define IDEVer       "2010"
+  #define IDEVerExt    ""
   #define DLLSuffix    "RS2010"
   #define IDERegName   "BDS"
   #define IDERegVer    "7"
@@ -104,6 +117,7 @@
   #define IDEShortName "RADStudio"
   #define IDELongName  "RAD Studio"
   #define IDEVer       "XE1"
+  #define IDEVerExt    ""
   #define DLLSuffix    "RSXE1"
   #define IDERegName   "BDS"
   #define IDERegVer    "8"
@@ -113,6 +127,7 @@
   #define IDEShortName "RADStudio"
   #define IDELongName  "RAD Studio"
   #define IDEVer       "XE2"
+  #define IDEVerExt    ""
   #define DLLSuffix    "RSXE2"
   #define IDERegName   "BDS"
   #define IDERegVer    "9"
@@ -122,6 +137,7 @@
   #define IDEShortName "RADStudio"
   #define IDELongName  "RAD Studio"
   #define IDEVer       "XE3"
+  #define IDEVerExt    ""
   #define DLLSuffix    "RSXE3"
   #define IDERegName   "BDS"
   #define IDERegVer    "10"
@@ -131,6 +147,7 @@
   #define IDEShortName "RADStudio"
   #define IDELongName  "RAD Studio"
   #define IDEVer       "XE4"
+  #define IDEVerExt    ""
   #define DLLSuffix    "RSXE4"
   #define IDERegName   "BDS"
   #define IDERegVer    "11"
@@ -140,6 +157,7 @@
   #define IDEShortName "RADStudio"
   #define IDELongName  "RAD Studio"
   #define IDEVer       "XE5"
+  #define IDEVerExt    ""
   #define DLLSuffix    "RSXE5"
   #define IDERegName   "BDS"
   #define IDERegVer    "12"
@@ -149,6 +167,7 @@
   #define IDEShortName "RADStudio"
   #define IDELongName  "RAD Studio"
   #define IDEVer       "XE6"
+  #define IDEVerExt    ""
   #define DLLSuffix    "RSXE6"
   #define IDERegName   "BDS"
   #define IDERegVer    "14" ; Not 13
@@ -158,6 +177,7 @@
   #define IDEShortName "RADStudio"
   #define IDELongName  "RAD Studio"
   #define IDEVer       "XE7"
+  #define IDEVerExt    ""
   #define DLLSuffix    "RSXE7"
   #define IDERegName   "BDS"
   #define IDERegVer    "15"
@@ -167,18 +187,30 @@
   #define IDEShortName "RADStudio"
   #define IDELongName  "RAD Studio"
   #define IDEVer       "XE8"
+  #define IDEVerExt    ""
   #define DLLSuffix    "RSXE8"
   #define IDERegName   "BDS"
   #define IDERegVer    "16"
   #define RegCompany   "Embarcadero"
 #endif
-#ifdef RS10
+#ifdef RS10Seattle
   #define IDEShortName "RADStudio"
   #define IDELongName  "RAD Studio"
   #define IDEVer       "10"
-  #define DLLSuffix    "RS10"
+  #define IDEVerExt    "Seattle"
+  #define DLLSuffix    "RS10Seattle"
   #define IDERegName   "BDS"
   #define IDERegVer    "17"
+  #define RegCompany   "Embarcadero"
+#endif
+#ifdef RS10Berlin
+  #define IDEShortName "RADStudio"
+  #define IDELongName  "RAD Studio"
+  #define IDEVer       "10"
+  #define IDEVerExt    "Berlin"
+  #define DLLSuffix    "RS10Berlin"
+  #define IDERegName   "BDS"
+  #define IDERegVer    "18"
   #define RegCompany   "Embarcadero"
 #endif
 
@@ -192,7 +224,7 @@
 ; IDEShortName + IDEVer
 #define BinaryDir   DLLSuffix
 #define DLLName     Product + DLLSuffix + ".dll"
-#define AppIDValue  Product + IDEShortName + IDEVer
+#define AppIDValue  Product + IDEShortName + IDEVer + IDEVerExt
 #define ThisYear    GetDateTimeString('yyyy', '', '');
 
 [Setup]
@@ -214,9 +246,13 @@ VersionInfoVersion={#Version}.{#Build}
 VersionInfoDescription={#FullName} Setup
 VersionInfoTextVersion={#Version}.{#Build}
 SolidCompression=yes
-#ifdef SignCommand
-#pragma warning "Value of variable SignCommand is: " + SignCommand
-SignTool=SignCommand
+#ifdef SignCommand1
+#pragma warning "Value of variable SignCommand1 is: " + SignCommand1
+SignTool=SignCommand1
+#endif
+#ifdef SignCommand2
+#pragma warning "Value of variable SignCommand2 is: " + SignCommand2
+SignTool=SignCommand2
 #endif
 ;OutputBaseFilename=Setup{#DLLSuffix}
 SetupIconFile=GX.ico

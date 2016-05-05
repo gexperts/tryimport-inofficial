@@ -1,4 +1,4 @@
-library GExpertsRS10;
+library GExpertsRS10Berlin;
 
 {$R 'GXIcons.res' '..\Images\GXIcons.rc'}
 {$R *.res}
