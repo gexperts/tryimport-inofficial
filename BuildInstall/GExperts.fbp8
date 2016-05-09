@@ -281,14 +281,17 @@ begin
                              "%SignPW%" +
                              "%SignTool%" +
                              "%TimeStampServer_SHA-1%" +
+                             "%TimeStampServer_SHA-2%" +
                              ""
           operatorsstoragestring = "<\>" +
+                                   "<\>" +
                                    "<\>" +
                                    "<\>" +
                                    "<\>" +
                                    ""
           resultinlogtitle = true
           rhsstoragestring = "" +
+                             "" +
                              "" +
                              "" +
                              "" +
@@ -1548,8 +1551,8 @@ begin
           id = {A62862FB-231C-4EAB-8EA6-90236C835EDF}
           innoversion = Inno5
           scriptfile = %GXInstallDir%\\GExperts.iss
-          showprogress = false
-          signtool = %SignCommand1%
+          showprogress = true
+          signtool = %SignCommand2%
           unicode = false
           usecommandline = true
           usepreprocessor = true
@@ -1763,7 +1766,7 @@ begin
   end
   variable
   begin
-    defaultvalue = "sign /f \"%SignFilePath%\" /p \"%SignPW%\" /fd sha256 /tr %TimeStampServer_SHA-2%?td\=sha256 /as /v"
+    defaultvalue = "sign /f \"%SignFilePath%\" /p \"%SignPW%\" /as /fd sha256 /td sha256 /tr %TimeStampServer_SHA-2% /v"
     groupname = Signing
     ismacro = true
     name = SignToolSign2
