@@ -86,7 +86,7 @@ begin
               fileset.pattern
               begin
                 comment = "VCL Forms"
-                directoriesonly = false
+                includedattributes = FilesOnly
                 item = *.dfm
                 recurse = false
               end
@@ -768,13 +768,12 @@ begin
           includetd32 = false
           inlining = inOn
           iochecking = true
-          librarypath = $(BDSLIB)\\$(Platform)\\release;$(BDSUSERDIR)\\Imports;$(BDS)\\Imports;$(BDSCOMMONDIR)\\Dcp;$(BDS)\\include;d:\\F\\Delphi-Komponenten\\JVCL\\JVCL349CompleteJCL27-Build5676\\jcl\\lib\\d23\\win32;d:\\F\\Delphi-Komponenten\\JVCL\\JVCL349CompleteJCL27-Build5676\\jcl\\source\\include;d:\\F\\Delphi-Komponenten\\JVCL\\JVCL349CompleteJCL27-Build5676\\jvcl\\lib\\D23\\win32;d:\\F\\Delphi-Komponenten\\JVCL\\jcl_2015-11-10\\jcl\\lib\\d23\\win32;d:\\F\\Delphi-Komponenten\\JVCL\\jcl_2015-11-10\\jcl\\source\\include;d:\\F\\Delphi-Komponenten\\JVCL\\jvcl_2015-11-10\\jvcl\\lib\\D23\\win32;d:\\F\\Delphi-Komponenten\\JVCL\\jvcl_2015-11-10\\jvcl\\common;d:\\F\\Delphi-Komponenten\\JVCL\\jvcl_2015-11-10\\jvcl\\Resources
           linkeroutput = 0
           localsymbols = false
           mapfile = 0
           maxstacksize = 1048576
           minstacksize = 16384
-          namespaceprefixes = System;Xml;Data;Datasnap;Web;Soap;Winapi;System.Win;Data.Win;Web.Win;Soap.Win;Bde;Vcl;Vcl.Imaging;Vcl.Touch;Vcl.Samples;Vcl.Shell;
+          namespaceprefixes = System;Xml;Data;Datasnap;Web;Soap;Winapi;System.Win;Data.Win;Web.Win;Soap.Win;Bde;Vcl;Vcl.Imaging;Vcl.Touch;Vcl.Samples;Vcl.Shell;Xml.Win;
           openstrings = true
           optimisation = true
           overflowchecking = false
@@ -895,13 +894,12 @@ begin
           includetd32 = false
           inlining = inOn
           iochecking = true
-          librarypath = $(BDSLIB)\\$(Platform)\\release;$(BDSUSERDIR)\\Imports;$(BDS)\\Imports;$(BDSCOMMONDIR)\\Dcp;$(BDS)\\include;d:\\F\\Delphi-Komponenten\\JVCL\\JVCL349CompleteJCL27-Build5676\\jcl\\lib\\d23\\win32;d:\\F\\Delphi-Komponenten\\JVCL\\JVCL349CompleteJCL27-Build5676\\jcl\\source\\include;d:\\F\\Delphi-Komponenten\\JVCL\\JVCL349CompleteJCL27-Build5676\\jvcl\\lib\\D23\\win32;d:\\F\\Delphi-Komponenten\\JVCL\\jcl_2015-11-10\\jcl\\lib\\d23\\win32;d:\\F\\Delphi-Komponenten\\JVCL\\jcl_2015-11-10\\jcl\\source\\include;d:\\F\\Delphi-Komponenten\\JVCL\\jvcl_2015-11-10\\jvcl\\lib\\D23\\win32;d:\\F\\Delphi-Komponenten\\JVCL\\jvcl_2015-11-10\\jvcl\\common;d:\\F\\Delphi-Komponenten\\JVCL\\jvcl_2015-11-10\\jvcl\\Resources
           linkeroutput = 0
           localsymbols = false
           mapfile = 0
           maxstacksize = 1048576
           minstacksize = 16384
-          namespaceprefixes = System;Xml;Data;Datasnap;Web;Soap;Winapi;System.Win;Data.Win;Web.Win;Soap.Win;Bde;Vcl;Vcl.Imaging;Vcl.Touch;Vcl.Samples;Vcl.Shell;
+          namespaceprefixes = System;Xml;Data;Datasnap;Web;Soap;Winapi;System.Win;Data.Win;Web.Win;Soap.Win;Bde;Vcl;Vcl.Imaging;Vcl.Touch;Vcl.Samples;Vcl.Shell;Xml.Win;
           openstrings = true
           optimisation = true
           outputdir = %GXBinariesDir%\\%NameSuffix%
@@ -1022,13 +1020,12 @@ begin
           includetd32 = false
           inlining = inOn
           iochecking = true
-          librarypath = $(BDSLIB)\\$(Platform)\\release;$(BDSUSERDIR)\\Imports;$(BDS)\\Imports;$(BDSCOMMONDIR)\\Dcp;$(BDS)\\include;d:\\F\\Delphi-Komponenten\\JVCL\\JVCL349CompleteJCL27-Build5676\\jcl\\lib\\d23\\win32;d:\\F\\Delphi-Komponenten\\JVCL\\JVCL349CompleteJCL27-Build5676\\jcl\\source\\include;d:\\F\\Delphi-Komponenten\\JVCL\\JVCL349CompleteJCL27-Build5676\\jvcl\\lib\\D23\\win32;d:\\F\\Delphi-Komponenten\\JVCL\\jcl_2015-11-10\\jcl\\lib\\d23\\win32;d:\\F\\Delphi-Komponenten\\JVCL\\jcl_2015-11-10\\jcl\\source\\include;d:\\F\\Delphi-Komponenten\\JVCL\\jvcl_2015-11-10\\jvcl\\lib\\D23\\win32;d:\\F\\Delphi-Komponenten\\JVCL\\jvcl_2015-11-10\\jvcl\\common;d:\\F\\Delphi-Komponenten\\JVCL\\jvcl_2015-11-10\\jvcl\\Resources
           linkeroutput = 0
           localsymbols = false
           mapfile = 0
           maxstacksize = 1048576
           minstacksize = 16384
-          namespaceprefixes = System;Xml;Data;Datasnap;Web;Soap;Winapi;System.Win;Data.Win;Web.Win;Soap.Win;Bde;Vcl;Vcl.Imaging;Vcl.Touch;Vcl.Samples;Vcl.Shell;
+          namespaceprefixes = System;Xml;Data;Datasnap;Web;Soap;Winapi;System.Win;Data.Win;Web.Win;Soap.Win;Bde;Vcl;Vcl.Imaging;Vcl.Touch;Vcl.Samples;Vcl.Shell;Xml.Win;
           openstrings = true
           optimisation = true
           outputdir = %GXBinariesDir%\\%NameSuffix%
@@ -1150,13 +1147,12 @@ begin
           includetd32 = false
           inlining = inOn
           iochecking = true
-          librarypath = $(BDSLIB)\\$(Platform)\\release;$(BDSUSERDIR)\\Imports;$(BDS)\\Imports;$(BDSCOMMONDIR)\\Dcp;$(BDS)\\include;d:\\F\\Delphi-Komponenten\\JVCL\\JVCL349CompleteJCL27-Build5676\\jcl\\lib\\d23\\win32;d:\\F\\Delphi-Komponenten\\JVCL\\JVCL349CompleteJCL27-Build5676\\jcl\\source\\include;d:\\F\\Delphi-Komponenten\\JVCL\\JVCL349CompleteJCL27-Build5676\\jvcl\\lib\\D23\\win32;d:\\F\\Delphi-Komponenten\\JVCL\\jcl_2015-11-10\\jcl\\lib\\d23\\win32;d:\\F\\Delphi-Komponenten\\JVCL\\jcl_2015-11-10\\jcl\\source\\include;d:\\F\\Delphi-Komponenten\\JVCL\\jvcl_2015-11-10\\jvcl\\lib\\D23\\win32;d:\\F\\Delphi-Komponenten\\JVCL\\jvcl_2015-11-10\\jvcl\\common;d:\\F\\Delphi-Komponenten\\JVCL\\jvcl_2015-11-10\\jvcl\\Resources
           linkeroutput = 0
           localsymbols = false
           mapfile = 0
           maxstacksize = 1048576
           minstacksize = 16384
-          namespaceprefixes = System;Xml;Data;Datasnap;Web;Soap;Winapi;System.Win;Data.Win;Web.Win;Soap.Win;Bde;Vcl;Vcl.Imaging;Vcl.Touch;Vcl.Samples;Vcl.Shell;
+          namespaceprefixes = System;Xml;Data;Datasnap;Web;Soap;Winapi;System.Win;Data.Win;Web.Win;Soap.Win;Bde;Vcl;Vcl.Imaging;Vcl.Touch;Vcl.Samples;Vcl.Shell;Xml.Win;
           openstrings = true
           optimisation = true
           outputdir = %GXBinariesDir%\\%NameSuffix%
@@ -1277,13 +1273,12 @@ begin
           includetd32 = false
           inlining = inOn
           iochecking = true
-          librarypath = $(BDSLIB)\\$(Platform)\\release;$(BDSUSERDIR)\\Imports;$(BDS)\\Imports;$(BDSCOMMONDIR)\\Dcp;$(BDS)\\include;d:\\F\\Delphi-Komponenten\\JVCL\\JVCL349CompleteJCL27-Build5676\\jcl\\lib\\d23\\win32;d:\\F\\Delphi-Komponenten\\JVCL\\JVCL349CompleteJCL27-Build5676\\jcl\\source\\include;d:\\F\\Delphi-Komponenten\\JVCL\\JVCL349CompleteJCL27-Build5676\\jvcl\\lib\\D23\\win32;d:\\F\\Delphi-Komponenten\\JVCL\\jcl_2015-11-10\\jcl\\lib\\d23\\win32;d:\\F\\Delphi-Komponenten\\JVCL\\jcl_2015-11-10\\jcl\\source\\include;d:\\F\\Delphi-Komponenten\\JVCL\\jvcl_2015-11-10\\jvcl\\lib\\D23\\win32;d:\\F\\Delphi-Komponenten\\JVCL\\jvcl_2015-11-10\\jvcl\\common;d:\\F\\Delphi-Komponenten\\JVCL\\jvcl_2015-11-10\\jvcl\\Resources
           linkeroutput = 0
           localsymbols = false
           mapfile = 0
           maxstacksize = 1048576
           minstacksize = 16384
-          namespaceprefixes = System;Xml;Data;Datasnap;Web;Soap;Winapi;System.Win;Data.Win;Web.Win;Soap.Win;Bde;Vcl;Vcl.Imaging;Vcl.Touch;Vcl.Samples;Vcl.Shell;
+          namespaceprefixes = System;Xml;Data;Datasnap;Web;Soap;Winapi;System.Win;Data.Win;Web.Win;Soap.Win;Bde;Vcl;Vcl.Imaging;Vcl.Touch;Vcl.Samples;Vcl.Shell;Xml.Win;
           openstrings = true
           optimisation = true
           outputdir = %GXBinariesDir%\\%NameSuffix%
@@ -1583,6 +1578,7 @@ begin
       begin
         id = {C7D02E48-D358-4896-A36C-48C3E7B347CA}
         newdirname = GX%NameSuffix%-%SetupVersion%.exe
+        overwriteexisting = false
         renamedir = false
         sourcefile = %GXInstallDir%\\Output\\Setup.exe
       end
